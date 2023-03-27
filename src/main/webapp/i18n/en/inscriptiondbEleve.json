@@ -1,0 +1,36 @@
+{
+  "gatewayApp": {
+    "inscriptiondbEleve": {
+      "home": {
+        "title": "List of students",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a student",
+        "notFound": "No Eleves found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Eleve {{ id }}?"
+      },
+      "detail": {
+        "title": "Details student"
+      },
+      "photo": "Photo",
+      "matricule": "Matricule",
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "sexe": "Sexe",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "email": "Email",
+      "dateNaissance": "Date Naissance",
+      "lieuNaissance": "Lieu Naissance",
+      "tuteur": "Tuteur"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbEleve": {
+      "created": "A new Eleve is created with identifier {{ param }}",
+      "updated": "A Eleve is updated with identifier {{ param }}",
+      "deleted": "A Eleve is deleted with identifier {{ param }}"
+    }
+  }
+}

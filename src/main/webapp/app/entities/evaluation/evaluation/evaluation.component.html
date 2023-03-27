@@ -1,0 +1,65 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.evaluationEvaluation.home.title">List of evaluations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-evaluation" [routerLink]="['/evaluation/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.evaluationEvaluation.home.createLabel">New</span>
+        </button>
+    </h3>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="evaluations?.length === 0">
+        <span jhiTranslate="gatewayApp.evaluationEvaluation.home.notFound">No evaluations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="evaluations && evaluations.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="type"><span jhiTranslate="gatewayApp.evaluationEvaluation.type">Type</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="classe"><span jhiTranslate="gatewayApp.evaluationEvaluation.classe">Classe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="matiere"><span jhiTranslate="gatewayApp.evaluationEvaluation.matiere">Matiere</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateEvaluation"><span jhiTranslate="gatewayApp.evaluationEvaluation.dateEvaluation">Date Evaluation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="trimestreId"><span jhiTranslate="gatewayApp.evaluationEvaluation.trimestre">Trimestre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let evaluation of evaluations ;trackBy: trackId">
+                    <td>{{ evaluation.type }}</td>
+                    <td>{{ evaluation.classeClient?.nom }}</td>
+                    <td>{{ evaluation.matiereClient?.nom }}</td>
+                    <td>{{ evaluation.dateEvaluation | date:'mediumDate' }}</td>
+                    <td>
+                        <div *ngIf="evaluation.trimestre?.id">
+                            <div [routerLink]="['/trimestre', evaluation.trimestre?.id , 'view']" >{{ evaluation.trimestre?.dateDebut | date:'mediumDate' }} &nbsp; {{ evaluation.trimestre?.dateFin | date:'mediumDate' }}</div>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/evaluation', evaluation.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+                            <button type="submit" [routerLink]="['/evaluation', evaluation.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+                            <button type="submit" (click)="delete(evaluation)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div *ngIf="evaluations && evaluations.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "paiementdbMois": {
+      "home": {
+        "title": "Mois",
+        "createLabel": "Crear nuevo Mois",
+        "createOrEditLabel": "Crear o editar Mois",
+        "notFound": "Ningún Mois encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Mois {{ id }}?"
+      },
+      "detail": {
+        "title": "Mois"
+      },
+      "nom": "Nom",
+      "facture": "Facture"
+    }
+  },
+  "paiementdbApp": {
+    "paiementdbMois": {
+      "created": "Un nuevo Mois ha sido creado con el identificador {{ param }}",
+      "updated": "Un Mois ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Mois ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

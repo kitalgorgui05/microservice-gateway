@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="enseignant" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark" jhiTranslate="gatewayApp.coursEnseignant.detail.title">Details Enseignant</span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="card jh-card">
+            <div class="row jh-entity-details text-center mb-3">
+                <div class="col-md-6">
+                    <span class="font-weight-bold" jhiTranslate="gatewayApp.coursEnseignant.prenom">Prenom</span> :
+                    <span style="font-family: 'Comic Sans MS';color: green">{{ enseignant.prenom }}</span>
+                </div>
+                <div class="col-md-6">
+                    <span class="font-weight-bold" jhiTranslate="gatewayApp.coursEnseignant.nom">Nom</span> :
+                    <span style="font-family: 'Comic Sans MS';color: green">{{ enseignant.nom }}</span>
+                </div>
+            </div>
+            <div class="row jh-entity-details text-center mb-3">
+                <div class="col-md-6">
+                    <span class="font-weight-bold" jhiTranslate="gatewayApp.coursEnseignant.telephone">Telephone</span> :
+                    <span style="font-family: 'Comic Sans MS';color: green">{{ enseignant.telephone }}</span>
+                </div>
+                <div class="col-md-6">
+                    <span class="font-weight-bold" jhiTranslate="gatewayApp.coursEnseignant.email">Email</span> :
+                    <span style="font-family: 'Comic Sans MS';color: green">{{ enseignant.email }}</span>
+                </div>
+            </div>
+                <div class="row jh-entity-details text-center">
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.coursEnseignant.adresse">Adresse</span> :
+                        <span style="font-family: 'Comic Sans MS';color: green">{{ enseignant.adresse }}</span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/enseignant', enseignant.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "transportGroupeTransport": {
+      "home": {
+        "title": "List of G_Transport",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Groupe Transport",
+        "notFound": "No Groupe Transports found"
+      },
+      "delete": {
+        "question": "Are you sure to delete Groupe {{ id }}?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "nom": "Nom",
+      "nombreEleves": "Nombre Eleves",
+      "etat": "Etat",
+      "zones": "Zones"
+    }
+  },
+  "transportApp": {
+    "transportGroupeTransport": {
+      "created": "A new Groupe Transport is created with identifier {{ param }}",
+      "updated": "A Groupe Transport is updated with identifier {{ param }}",
+      "deleted": "A Groupe Transport is deleted with identifier {{ param }}"
+    }
+  }
+}

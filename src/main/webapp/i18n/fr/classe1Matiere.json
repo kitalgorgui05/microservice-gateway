@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "classe1Matiere": {
+      "home": {
+        "title": "Liste des matieres",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Matiere",
+        "notFound": "Aucun Matiere trouvé"
+      },
+      "delete": {
+        "question": "Voulez-vous supprimer le Matiere {{ id }} ?"
+      },
+      "detail": {
+        "title": "Details des matière"
+      },
+      "nom": "Nom",
+      "niveau": "Niveau"
+    }
+  },
+  "classe1App": {
+    "classe1Matiere": {
+      "created": "Un nouveau Matiere a été créé avec le nom {{ param }}",
+      "updated": "Le Matiere avec le nom {{ param }} a été mis à jour",
+      "deleted": "Le Matiere avec le nom {{ param }} a été supprimé"
+    }
+  }
+}

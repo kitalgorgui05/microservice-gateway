@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "paiementdbFacture": {
+      "home": {
+        "title": "Factures",
+        "createLabel": "Crear nuevo Facture",
+        "createOrEditLabel": "Crear o editar Facture",
+        "notFound": "Ningún Factures encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Facture {{ id }}?"
+      },
+      "detail": {
+        "title": "Facture"
+      },
+      "date": "Date",
+      "code": "Code",
+      "paiee": "Paiee",
+      "idEleve": "Id Eleve",
+      "mois": "Mois",
+      "paiement": "Paiement"
+    }
+  },
+  "paiementdbApp": {
+    "paiementdbFacture": {
+      "created": "Un nuevo Facture ha sido creado con el identificador {{ param }}",
+      "updated": "Un Facture ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Facture ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

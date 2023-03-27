@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="chauffeur" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark">
+                     <span jhiTranslate="gatewayApp.transportChauffeur.detail.title">Details</span>
+                </span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="card jh-card text-center">
+                <div class="row jh-entity-details mb-3">
+                    <div class="col-md-4">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportChauffeur.prenom">Prenom</span> : <span style="font-family: 'Comic Sans MS'; color: green">{{ chauffeur.prenom }}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportChauffeur.nom">Nom</span> : <span style="font-family: 'Comic Sans MS'; color: green">{{chauffeur.nom}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportChauffeur.dateNaissance">Date Naissance</span> : <span style="font-family: 'Comic Sans MS';color: green">{{chauffeur.dateNaissance | date}}</span>
+                    </div>
+                </div>
+                <div class="row jh-entity-details mb-3 ">
+                    <div class="col-md-4">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportChauffeur.lieuNaissance">Lieu Naissance</span> : <span style="font-family: 'Comic Sans MS';color: green">{{chauffeur.lieuNaissance}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportChauffeur.cin">Cin</span> : <span style="font-family: 'Comic Sans MS';color: green">{{chauffeur.cin}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportChauffeur.telephone">Telephone</span> : <span style="font-family: 'Comic Sans MS';color: green">{{ chauffeur.telephone }}</span>
+                    </div>
+                </div>
+                <div class="row jh-entity-details">
+                    <div class="col-md-12">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportChauffeur.adresse">Adresse</span> : <span style="font-family: 'Comic Sans MS';color: green">{{ chauffeur.adresse }}</span>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/chauffeur', chauffeur.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

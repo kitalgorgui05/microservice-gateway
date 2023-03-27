@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="inscription">
+            <h2><span jhiTranslate="gatewayApp.inscriptiondbInscription.detail.title">Inscription</span> {{ inscription.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.inscriptiondbInscription.dateInscription">Date Inscription</span></dt>
+                <dd>
+                    <span>{{ inscription.dateInscription }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptiondbInscription.classe">Classe</span></dt>
+                <dd>
+                    <span>{{ inscription.classe }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptiondbInscription.transport">Transport</span></dt>
+                <dd>
+                    <span>{{ inscription.transport }}</span>
+                </dd>
+
+                <dt><span jhiTranslate="gatewayApp.inscriptiondbInscription.cantine">Cantine</span></dt>
+                <dd>
+                    <span>{{ inscription.cantine }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptiondbInscription.statut">Statut</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'gatewayApp.Etat.' + inscription.statut }}">{{ inscription.statut }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptiondbInscription.eleve">Eleve</span></dt>
+                <dd>
+                    <div *ngIf="inscription.eleve?.id">
+                        <div [routerLink]="['/eleve', inscription.eleve?.id, 'view']">{{ inscription.eleve?.prenom }} &nbsp;{{ inscription.eleve?.nom }}</div>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.inscriptiondbInscription.annee">Annee</span></dt>
+                <dd>
+                    <div *ngIf="inscription.annee?.id">
+                        <div [routerLink]="['/annee', inscription.annee?.id, 'view']">{{ inscription.annee?.nom}}</div>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/inscription', inscription.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

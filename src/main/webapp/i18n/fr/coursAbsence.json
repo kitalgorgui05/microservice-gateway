@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "coursAbsence": {
+      "home": {
+        "title": "Liste des absences",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Absence",
+        "notFound": "Aucun Absence trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer l'{{ id }} ?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "idEleve": "Id Eleve",
+      "motif": "Motif",
+      "etat": "Etat",
+      "cours": "Cours"
+    }
+  },
+  "coursApp": {
+    "coursAbsence": {
+      "created": "Un nouveau Absence a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Absence avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Absence avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

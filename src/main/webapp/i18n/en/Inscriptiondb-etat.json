@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "Etat": {
+      "null": "",
+      "INSCRIT": "INSCRIT",
+      "NON_INSCRIT": "NON_INSCRIT"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="classe">
+            <h2><span jhiTranslate="gatewayApp.classe1Classe.detail.title">Classe</span> {{ classe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.classe1Classe.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ classe.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.classe1Classe.niveau">Niveau</span></dt>
+                <dd>
+                    <div *ngIf="classe.niveau?.id">
+                        <a [routerLink]="['/niveau', classe.niveau?.id, 'view']">{{ classe.niveau?.nom }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/classe', classe.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

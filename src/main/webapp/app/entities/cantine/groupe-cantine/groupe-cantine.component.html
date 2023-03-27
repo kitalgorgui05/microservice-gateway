@@ -1,0 +1,64 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.cantineGroupeCantine.home.title">List of group cantine</span>
+
+        <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-groupe-cantine" [routerLink]="['/groupe-cantine/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.cantineGroupeCantine.home.createLabel">New</span>
+        </button>
+    </h3>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="groupeCantines?.length === 0">
+        <span jhiTranslate="gatewayApp.cantineGroupeCantine.home.notFound">No groupeCantines found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="groupeCantines && groupeCantines.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.cantineGroupeCantine.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreEleves"><span jhiTranslate="gatewayApp.cantineGroupeCantine.nombreEleves">Nombre Eleves</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cantineId"><span jhiTranslate="gatewayApp.cantineGroupeCantine.cantine">Cantine</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let groupeCantine of groupeCantines ;trackBy: trackId">
+                    <td>{{ groupeCantine.nom }}</td>
+                    <td>{{ groupeCantine.nombreEleves }}</td>
+                    <td>
+                        <div *ngIf="groupeCantine.cantine">
+                            <div>{{groupeCantine.cantine.libelle}}</div>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/groupe-cantine', groupeCantine.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/groupe-cantine', groupeCantine.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(groupeCantine)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+
+    <div *ngIf="groupeCantines && groupeCantines.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

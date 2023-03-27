@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "coursHoraire": {
+      "home": {
+        "title": "List of horaire",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Horaire",
+        "notFound": "No Horaires found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete {{ id }}?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "horaire": "Horaire",
+      "cours": "Cours"
+    }
+  },
+  "coursApp": {
+    "coursHoraire": {
+      "created": "A new Horaire is created with identifier {{ param }}",
+      "updated": "A Horaire is updated with identifier {{ param }}",
+      "deleted": "A Horaire is deleted with identifier {{ param }}"
+    }
+  }
+}

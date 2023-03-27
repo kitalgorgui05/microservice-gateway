@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reglement">
+            <h2><span jhiTranslate="gatewayApp.paiementdbReglement.detail.title">Reglement</span> {{ reglement.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.paiementdbReglement.date">Date</span></dt>
+                <dd>
+                    <span>{{ reglement.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.paiementdbReglement.montantInscription">Montant Inscription</span></dt>
+                <dd>
+                    <span>{{ reglement.montantInscription }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.paiementdbReglement.mensualite">Mensualite</span></dt>
+                <dd>
+                    <span>{{ reglement.mensualite }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.paiementdbReglement.montantCantine">Montant Cantine</span></dt>
+                <dd>
+                    <span>{{ reglement.montantCantine }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.paiementdbReglement.montantTransport">Montant Transport</span></dt>
+                <dd>
+                    <span>{{ reglement.montantTransport }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.paiementdbReglement.idNiveau">Id Niveau</span></dt>
+                <dd>
+                    <span>{{ reglement.idNiveau }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.paiementdbReglement.idAnnee">Id Annee</span></dt>
+                <dd>
+                    <span>{{ reglement.idAnnee }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reglement', reglement.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "utilisateurProfileUtil": {
+      "home": {
+        "title": "Profile Utils",
+        "createLabel": "Crear nuevo Profile Util",
+        "createOrEditLabel": "Crear o editar Profile Util",
+        "notFound": "Ningún Profile Utils encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Profile Util {{ id }}?"
+      },
+      "detail": {
+        "title": "Profile Util"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "utilisateurs": "Utilisateurs"
+    }
+  },
+  "utilisateurApp": {
+    "utilisateurProfileUtil": {
+      "created": "Un nuevo Profile Util ha sido creado con el identificador {{ param }}",
+      "updated": "Un Profile Util ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Profile Util ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

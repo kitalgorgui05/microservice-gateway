@@ -1,0 +1,71 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.evaluationNote.home.title">Notes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-note" [routerLink]="['/note/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.evaluationNote.home.createLabel">
+            Create a new Note
+            </span>
+        </button>
+    </h3>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="notes?.length === 0">
+        <span jhiTranslate="gatewayApp.evaluationNote.home.notFound">No notes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="notes && notes.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="eleve"><span jhiTranslate="gatewayApp.evaluationNote.eleve">Eleve</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="evaluationId"><span jhiTranslate="gatewayApp.evaluationNote.evaluation">Evaluation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="note"><span jhiTranslate="gatewayApp.evaluationNote.note">Note</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="apperciation"><span jhiTranslate="gatewayApp.evaluationNote.apperciation">Apperciation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let note of notes ;trackBy: trackId">
+                    <td>
+                        <div *ngIf="note.eleveDTOReq?.id">
+                            <div [routerLink]="['/evaluation', note.eleveDTOReq?.id , 'view']" >{{ note.eleveDTOReq?.prenom }} &nbsp;{{ note.eleveDTOReq?.nom }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="note.evaluation?.id">
+                            <div [routerLink]="['/evaluation', note.evaluation?.id , 'view']" >{{ note.evaluation?.type }}</div>
+                        </div>
+                    </td>
+                    <td>{{ note.note }}</td>
+                    <td>{{ note.apperciation }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/note', note.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/note', note.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(note)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div *ngIf="notes && notes.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

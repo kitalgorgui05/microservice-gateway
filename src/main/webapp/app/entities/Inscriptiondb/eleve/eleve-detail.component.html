@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="eleve" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark">
+                    <span jhiTranslate="gatewayApp.inscriptiondbEleve.detail.title">Eleve</span> {{ eleve.prenom}}
+                </span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="card jh-card">
+                <div class="photo">
+                    <div class="col-md-6">
+                        <div *ngIf="eleve.photo">
+                            <a (click)="openFile(eleve.photoContentType, eleve.photo)">
+                                <img [src]="'data:' + eleve.photoContentType + ';base64,' + eleve.photo" style="max-width: 250%;" alt="eleve image"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="p1">
+                    <span jhiTranslate="gatewayApp.inscriptiondbEleve.matricule" class="font-weight-bold">Matricule</span> :
+                    <span>{{ eleve.matricule }}</span> <br>
+                    <span jhiTranslate="gatewayApp.inscriptiondbEleve.prenom" class="font-weight-bold">Prenom</span> :
+                    <span>{{ eleve.prenom }}</span><br>
+                    <span jhiTranslate="gatewayApp.inscriptiondbEleve.nom" class="font-weight-bold">Nom</span> :
+                    <span>{{ eleve.nom }}</span> <br>
+                    <span jhiTranslate="gatewayApp.inscriptiondbEleve.adresse" class="font-weight-bold">Adresse</span> :
+                    <span>{{ eleve.adresse }}</span>
+                </div>
+                <div class="p2">
+                    <div class="row jh-entity-details">
+                        <div class="col-md-4">
+                            <span jhiTranslate="gatewayApp.inscriptiondbEleve.telephone" class="font-weight-bold">Telephone</span> :
+                            <span>{{ eleve.telephone }}</span><br>
+                        </div>
+                        <div class="col-md-4">
+                            <span jhiTranslate="gatewayApp.inscriptiondbEleve.sexe" class="font-weight-bold">Sexe</span> :
+                            <span jhiTranslate="{{ 'gatewayApp.Sexe.' + eleve.sexe }}">{{ eleve.sexe }}</span><br>
+                        </div>
+                        <div class="col-md-4">
+                            <span jhiTranslate="gatewayApp.inscriptiondbEleve.email" class="font-weight-bold">Email</span> :
+                            <span>{{ eleve.email }}</span><br>
+                        </div>
+                    </div>
+                    <div class="row jh-entity-details">
+                        <div class="col-md-4">
+                            <span jhiTranslate="gatewayApp.inscriptiondbEleve.dateNaissance" class="font-weight-bold">Date Naissance</span> :
+                            <span>{{ eleve.dateNaissance | date:'mediumDate'}}</span><br>
+                        </div>
+                        <div class="col-md-4">
+                            <span jhiTranslate="gatewayApp.inscriptiondbEleve.lieuNaissance" class="font-weight-bold">Lieu Naissance</span> :
+                            <span>{{ eleve.lieuNaissance }}</span><br>
+                        </div>
+                        <div class="col-md-4">
+                            <span jhiTranslate="gatewayApp.inscriptiondbEleve.tuteur" class="font-weight-bold">Tuteur</span> :
+                            <span *ngIf="eleve.tuteur?.id" [routerLink]="['/tuteur', eleve.tuteur?.id, 'view']">{{ eleve.tuteur?.prenom }} &nbsp; {{ eleve.tuteur?.nom }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/eleve', eleve.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "immoblierSalle": {
+      "home": {
+        "title": "list of rooms",
+        "dashbaord": "Dashbaord",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Salle",
+        "notFound": "No Salles found"
+      },
+      "delete": {
+        "question": "Are you sure to delete {{ id }}?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "nom": "Nom",
+      "nombre": "Nombre",
+      "batiment": "Batiment"
+    }
+  },
+  "immoblierApp": {
+    "immoblierSalle": {
+      "created": "A new Salle is created with name {{ param }}",
+      "updated": "A Salle is updated with name {{ param }}",
+      "deleted": "A Salle is deleted with name {{ param }}"
+    }
+  }
+}

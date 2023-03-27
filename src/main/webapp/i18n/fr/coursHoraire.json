@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "coursHoraire": {
+      "home": {
+        "title": "liste des horaires",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Horaire",
+        "notFound": "Aucun Horaire trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le {{ id }} ?"
+      },
+      "detail": {
+        "title": "Détails"
+      },
+      "horaire": "Horaire",
+      "cours": "Cours"
+    }
+  },
+  "coursApp": {
+    "coursHoraire": {
+      "created": "Un nouveau Horaire a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Horaire avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Horaire avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

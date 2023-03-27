@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "classe1Classe": {
+      "home": {
+        "title": "Classes",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Classe",
+        "notFound": "Ningún Classes encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Classe {{ id }}?"
+      },
+      "detail": {
+        "title": "Classe"
+      },
+      "nom": "Nom",
+      "mensualite": "Mensualite",
+      "niveau": "Niveau"
+    }
+  },
+  "classe1App": {
+    "classe1Classe": {
+      "created": "Un nuevo Classe ha sido creado con el identificador {{ param }}",
+      "updated": "Un Classe ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Classe ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "immoblierSalle": {
+      "home": {
+        "title": "Liste des salles",
+        "dashbaord": "Tableau de bord",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Salle",
+        "notFound": "Aucun Salle trouvé"
+      },
+      "delete": {
+        "question": "Voulez-vous supprimer le {{ id }} ?"
+      },
+      "detail": {
+        "title": "Détails"
+      },
+      "nom": "Nom",
+      "nombre": "Nombre",
+      "batiment": "Batiment"
+    }
+  },
+  "immoblierApp": {
+    "immoblierSalle": {
+      "created": "Un nouveau Salle a été créé avec le nom {{ param }}",
+      "updated": "Le Salle avec le nom {{ param }} a été mis à jour",
+      "deleted": "Le Salle avec le nom {{ param }} a été supprimé"
+    }
+  }
+}

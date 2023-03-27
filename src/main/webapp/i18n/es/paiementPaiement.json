@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "paiementPaiement": {
+      "home": {
+        "title": "Paiements",
+        "createLabel": "Crear nuevo Paiement",
+        "createOrEditLabel": "Crear o editar Paiement",
+        "notFound": "Ningún Paiements encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Paiement {{ id }}?"
+      },
+      "detail": {
+        "title": "Paiement"
+      },
+      "mensualite": "Mensualite",
+      "montantInscription": "Montant Inscription",
+      "idNiveau": "Id Niveau",
+      "facture": "Facture"
+    }
+  },
+  "paiementApp": {
+    "paiementPaiement": {
+      "created": "Un nuevo Paiement ha sido creado con el identificador {{ param }}",
+      "updated": "Un Paiement ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Paiement ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

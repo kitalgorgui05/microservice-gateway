@@ -1,0 +1,68 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.transportBus.home.title">Buses</span>
+
+        <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-bus" [routerLink]="['/bus/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.transportBus.home.createLabel">
+            Create a new Bus
+            </span>
+        </button>
+    </h3>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="buses?.length === 0">
+        <span jhiTranslate="gatewayApp.transportBus.home.notFound">No buses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="buses && buses.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="matricule"><span jhiTranslate="gatewayApp.transportBus.matricule">Matricule</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="numero"><span jhiTranslate="gatewayApp.transportBus.numero">Numero</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreplace"><span jhiTranslate="gatewayApp.transportBus.nombreplace">Nombreplace</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="chauffeurId"><span jhiTranslate="gatewayApp.transportBus.chauffeur">Chauffeur</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bus of buses ;trackBy: trackId">
+                    <td>{{ bus.matricule }}</td>
+                    <td>{{ bus.numero }}</td>
+                    <td>{{ bus.nombreplace }}</td>
+                    <td>
+                        <div *ngIf="bus.chauffeur?.id">
+                            <div [routerLink]="['/chauffeur', bus.chauffeur?.id , 'view']" >{{bus.chauffeur?.prenom}} &nbsp; {{bus.chauffeur?.nom}}</div>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <button type="submit" [routerLink]="['/bus', bus.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/bus', bus.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(bus)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div *ngIf="buses && buses.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

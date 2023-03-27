@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="groupeTransport" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark" jhiTranslate="gatewayApp.transportGroupeTransport.detail.title">Groupe Transport</span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="card jh-card">
+                <div class="row jh-entity-details text-center mb-3">
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportGroupeTransport.nom">Nom</span> :
+                        <span style="font-family: 'Comic Sans MS';color: green">{{ groupeTransport.nom }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportGroupeTransport.nombreEleves">Nombre Eleves</span> :
+                        <span style="font-family: 'Comic Sans MS';color: green">{{ groupeTransport.nombreEleves }}</span>
+                    </div>
+                </div>
+                <div class="row jh-entity-details text-center">
+                    <div class="col-md-12">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportGroupeTransport.zones">Zones</span> :
+                        <span style="font-family: 'Comic Sans MS'; color: green" *ngFor="let zones of groupeTransport.zones; let last = last">
+                        <span [routerLink]="['/zone', zones?.id, 'view']">{{ zones.libelle }}</span>{{ last ? '' : ', ' }}
+                    </span>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/groupe-transport', groupeTransport.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

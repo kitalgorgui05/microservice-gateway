@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "transportChauffeur": {
+      "home": {
+        "title": "Liste des chauffeurs",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Chauffeur",
+        "notFound": "Aucun Chauffeur trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Chauffeur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Détails"
+      },
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "dateNaissance": "Date Naissance",
+      "lieuNaissance": "Lieu Naissance",
+      "cin": "Cin",
+      "telephone": "Telephone",
+      "adresse": "Adresse"
+    }
+  },
+  "transportApp": {
+    "transportChauffeur": {
+      "created": "Un nouveau Chauffeur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Chauffeur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Chauffeur avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

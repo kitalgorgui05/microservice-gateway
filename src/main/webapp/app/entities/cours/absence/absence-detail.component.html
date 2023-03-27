@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="absence">
+            <h2><span jhiTranslate="gatewayApp.coursAbsence.detail.title">Absence</span> {{ absence.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.coursAbsence.idEleve">Id Eleve</span></dt>
+                <dd>
+                    <span>{{ absence.idEleve }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coursAbsence.motif">Motif</span></dt>
+                <dd>
+                    <span>{{ absence.motif }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coursAbsence.etat">Etat</span></dt>
+                <dd>
+                    <span>{{ absence.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coursAbsence.cours">Cours</span></dt>
+                <dd>
+                    <div *ngIf="absence.cours?.id">
+                        <a [routerLink]="['/cours', absence.cours?.id, 'view']">{{ absence.cours?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/absence', absence.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

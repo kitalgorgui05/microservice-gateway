@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <form name="editForm" class="forme" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <div class="badges">
+                <span class="badge badge-dark" id="jhi-note-heading" jhiTranslate="gatewayApp.evaluationNote.home.createOrEditLabel">Create or edit a Note</span>
+            </div>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <!-- testing : [hidden]="!editForm.get('id')!.value"-->
+                <div hidden class="form-group">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.evaluationNote.eleve" for="field_eleve">Eleve</label>
+                            <select class="form-control" id="field_eleve" name="eleve" formControlName="eleve">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="e?.id" *ngFor="let e of eleves; trackBy: trackByIdEleve">{{ e?.prenom }}&nbsp;{{ e?.nom }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.evaluationNote.evaluation" for="field_evaluation">Evaluation</label>
+                            <select class="form-control" id="field_evaluation" name="evaluation" formControlName="evaluation">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="evaluationOption.id" *ngFor="let evaluationOption of evaluations; trackBy: trackById">{{ evaluationOption?.type }}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.evaluationNote.note" for="field_note">Note</label>
+                            <input type="number" class="form-control" name="note" id="field_note"
+                                   formControlName="note"/>
+                            <div *ngIf="editForm.get('note')!.invalid && (editForm.get('note')!.dirty || editForm.get('note')!.touched)">
+                                <small class="form-text text-danger"
+                                       *ngIf="editForm.get('note')?.errors?.required" jhiTranslate="entity.validation.required">
+                                    This field is required.
+                                </small>
+                                <small class="form-text text-danger"
+                                       [hidden]="!editForm.get('note')?.errors?.number" jhiTranslate="entity.validation.number">
+                                    This field should be a number.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.evaluationNote.apperciation" for="field_apperciation">Apperciation</label>
+                            <textarea class="form-control" name="apperciation" id="field_apperciation"
+                                      formControlName="apperciation"></textarea>
+                            <div *ngIf="editForm.get('apperciation')!.invalid && (editForm.get('apperciation')!.dirty || editForm.get('apperciation')!.touched)">
+                                <small class="form-text text-danger"
+                                       *ngIf="editForm.get('apperciation')?.errors?.required" jhiTranslate="entity.validation.required">
+                                    This field is required.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

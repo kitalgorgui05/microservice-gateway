@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "immoblierSalle": {
+      "home": {
+        "title": "lista de habitaciones",
+        "dashbaord": "salpicadero",
+        "createLabel": "Crear",
+        "createOrEditLabel": "Crear o editar Salle",
+        "notFound": "Ningún Salles encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Salle {{ id }}?"
+      },
+      "detail": {
+        "title": "Detalles"
+      },
+      "nom": "Nom",
+      "nombre": "Nombre",
+      "batiment": "Batiment"
+    }
+  },
+  "immoblierApp": {
+    "immoblierSalle": {
+      "created": "Un nuevo Salle ha sido creado con el identificador {{ param }}",
+      "updated": "Un Salle ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Salle ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

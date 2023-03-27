@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "immoblierBatiment": {
+      "home": {
+        "title": "lista de edificios",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Batiment",
+        "notFound": "Ningún Batiments encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar  {{ id }}?"
+      },
+      "detail": {
+        "title": "Batiment"
+      },
+      "nom": "Nom",
+      "nombreSalle": "Nombre Salle"
+    }
+  },
+  "immoblierApp": {
+    "immoblierBatiment": {
+      "created": "Un nuevo Batiment ha sido creado con el identificador {{ param }}",
+      "updated": "Un Batiment ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Batiment ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

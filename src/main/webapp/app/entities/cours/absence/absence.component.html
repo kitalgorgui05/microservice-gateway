@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.coursAbsence.home.title">Absences</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-absence" [routerLink]="['/absence/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.coursAbsence.home.createLabel">
+            Create a new Absence
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="absences?.length === 0">
+        <span jhiTranslate="gatewayApp.coursAbsence.home.notFound">No absences found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="absences && absences.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="idEleve"><span jhiTranslate="gatewayApp.coursAbsence.idEleve">Id Eleve</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="motif"><span jhiTranslate="gatewayApp.coursAbsence.motif">Motif</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="etat"><span jhiTranslate="gatewayApp.coursAbsence.etat">Etat</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="coursId"><span jhiTranslate="gatewayApp.coursAbsence.cours">Cours</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let absence of absences ;trackBy: trackId">
+                    <td>{{ absence.eleveClient?.prenom }}&nbsp;{{absence?.eleveClient?.nom }}</td>
+                    <td>{{ absence?.motif }}</td>
+                    <td>{{ absence?.etat }}</td>
+                    <td>
+                        <div *ngIf="absence.cours?.id">
+                            <div [routerLink]="['/cours', absence.cours?.id , 'view']" >{{ absence.cours?.matiereClient?.nom}}</div>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/absence', absence.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+                            <button type="submit" [routerLink]="['/absence', absence.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+                            <button type="submit" (click)="delete(absence)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="absences && absences.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="bus" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark">
+                    <span jhiTranslate="gatewayApp.transportBus.detail.title">Details</span> :
+                </span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="card jh-card">
+                <div class="row jh-entity-details mb-2 text-center">
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportBus.matricule">Matricule</span> :
+                        <span>{{ bus.matricule }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportBus.numero">Numero</span> :
+                        <span>{{ bus.numero }}</span>
+                    </div>
+                </div>
+
+                <div class="row jh-entity-details text-center">
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportBus.nombreplace">Nombreplace</span> :
+                        <span>{{ bus.nombreplace }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportBus.chauffeur">Chauffeur</span> :
+                        <div *ngIf="bus.chauffeur?.id" [routerLink]="['/chauffeur', bus.chauffeur?.id, 'view']">{{bus.chauffeur?.prenom }} &nbsp;{{bus.chauffeur?.nom }}</div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/bus', bus.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

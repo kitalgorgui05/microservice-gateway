@@ -1,0 +1,63 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.immoblierSalle.home.title">Listes des salles</span>
+        <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-salle" [routerLink]="['/salle/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.immoblierSalle.home.createLabel">New</span>
+        </button>
+    </h3>
+    <div class="pb-1">
+        <input class="form-control" type="text" placeholder="Rechercher...">
+    </div>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="salles?.length === 0">
+        <span jhiTranslate="gatewayApp.immoblierSalle.home.notFound">No salles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="salles && salles.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.immoblierSalle.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombre"><span jhiTranslate="gatewayApp.immoblierSalle.nombre">Nombre</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="batimentId"><span jhiTranslate="gatewayApp.immoblierSalle.batiment">Batiment</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let salle of salles ;trackBy: trackId">
+                    <td>{{ salle.nom }}</td>
+                    <td>{{ salle.nombre }}</td>
+                    <td>
+                        <div *ngIf="salle.batiment">
+                            <div [routerLink]="['/batiment', salle.batiment.id, 'view']" >{{salle.batiment.nom}}</div>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/salle', salle.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+                            <button type="submit" [routerLink]="['/salle', salle.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+                            <button type="submit" (click)="delete(salle)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+
+    <div *ngIf="salles && salles.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+
+    </div>
+</div>

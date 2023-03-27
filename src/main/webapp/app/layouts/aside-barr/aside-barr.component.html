@@ -1,0 +1,257 @@
+<aside class="main-sidebar main-sidebar-custom sidebar-light-white-primary elevation-4">
+    <a href="#" class="brand-link">
+        <img src="/content/images/LOGO.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Gestion école</span>
+    </a>
+
+    <div class="sidebar">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="/content/images/usr1.png" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <div [ngSwitch]="isAuthenticated()">
+                    <div class="alert alert-success" *ngSwitchCase="true">
+                        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
+                            [translateValues]="{ username: account.login }">{{ users.username }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item menu-open">
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Elèves
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="eleve" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.inscriptiondbEleve">New student</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="inscription" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.inscriptiondbInscription">Inscription</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="tuteur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.inscriptiondbTuteur">Tuteur</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="annee" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.inscriptiondbAnnee">Annee</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Classes
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="classe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.classeClasse">Classe</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="niveau" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.classeNiveau">Niveau</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="matiere" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.classeMatiere">Matiere</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Cours
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="cours" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.coursCours">Cours</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="horaire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.coursHoraire">Horaire</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="enseignant" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.coursEnseignant">Enseignant</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="absence" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.coursAbsence">Absence</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-house-user"></i>
+                        <p>
+                            Immoblier (B-S)
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a  class="nav-link" routerLink="batiment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.immoblierBatiment">Batiment</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="salle" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.immoblierSalle">Salle</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-car-alt"></i>
+                        <p>
+                            Transport (Bus&Ch)
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="bus" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.transportBus">Bus</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="chauffeur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.transportChauffeur">Chauffeur</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="groupe-transport" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.transportGroupeTransport">Groupe Transport</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="zone" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                               <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.transportZone">Zone</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="programme-transport" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.transportProgrammeTransport">Programme Transport</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-house-damage"></i>
+                        <p>
+                            Cantine
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="cantine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.cantineCantine">Cantine</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="groupe-cantine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.cantineGroupeCantine">Groupe Cantine</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mt-4">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                        <p>
+                            Configuration
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a href="pages/tables/simple.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Simple Tables</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/data.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>DataTables</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/tables/jsgrid.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>jsGrid</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "utilisateurUtilisateur": {
+      "home": {
+        "title": "Utilisateurs",
+        "createLabel": "Crear nuevo Utilisateur",
+        "createOrEditLabel": "Crear o editar Utilisateur",
+        "notFound": "Ningún Utilisateurs encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Utilisateur {{ id }}?"
+      },
+      "detail": {
+        "title": "Utilisateur"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "sexe": "Sexe",
+      "telephone": "Telephone",
+      "adresse": "Adresse",
+      "cin": "Cin",
+      "email": "Email",
+      "password": "Password",
+      "serviceUtil": "Service Util",
+      "profiles": "Profiles"
+    }
+  },
+  "utilisateurApp": {
+    "utilisateurUtilisateur": {
+      "created": "Un nuevo Utilisateur ha sido creado con el identificador {{ param }}",
+      "updated": "Un Utilisateur ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Utilisateur ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "inscriptiondbAnnee": {
+      "home": {
+        "title": "List of year",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Annee",
+        "notFound": "No Annees found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Annee {{ id }}?"
+      },
+      "detail": {
+        "title": "Detail Annee"
+      },
+      "nom": "Nom",
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbAnnee": {
+      "created": "A new Annee is created with identifier {{ param }}",
+      "updated": "A Annee is updated with identifier {{ param }}",
+      "deleted": "A Annee is deleted with identifier {{ param }}"
+    }
+  }
+}

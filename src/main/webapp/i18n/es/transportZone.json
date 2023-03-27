@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "transportZone": {
+      "home": {
+        "title": "Lista de zones",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Zone",
+        "notFound": "Ningún Zones encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar {{ id }}?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "libelle": "Libelle",
+      "description": "Description",
+      "groupetransports": "Groupetransports"
+    }
+  },
+  "transportApp": {
+    "transportZone": {
+      "created": "Un nuevo Zone ha sido creado con el identificador {{ param }}",
+      "updated": "Un Zone ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Zone ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "inscriptiondbTuteur": {
+      "home": {
+        "title": "Liste des tuteurs",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Tuteur",
+        "notFound": "Aucun Tuteur trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Tuteur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Details tuteur"
+      },
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "adresse": "Adresse",
+      "email": "Email",
+      "sexe": "Sexe"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbTuteur": {
+      "created": "Un nouveau Tuteur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Tuteur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Tuteur avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

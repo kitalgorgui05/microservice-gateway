@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="programmeTransport" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark" jhiTranslate="gatewayApp.transportProgrammeTransport.detail.title">Programme Transport</span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="card jh-card ">
+                <div class="row text-center mb-3">
+                    <div class="col-md-6">
+                        <span  class="font-weight-bold" jhiTranslate="gatewayApp.transportProgrammeTransport.heurDepart">Heur Depart</span> :
+                        <span style="font-family: 'Comic Sans MS';color: green">{{ programmeTransport.heurDepart| date:'mediumTime' }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportProgrammeTransport.dateDepart">Date Depart</span> :
+                        <span style="font-family: 'Comic Sans MS';color: green">{{ programmeTransport.dateDepart | date:'mediumDate' }}</span>
+                    </div>
+                </div>
+
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportProgrammeTransport.groupeTransport">Groupe Transport</span> :
+                        <div style="font-family: 'Comic Sans MS';color: green" *ngIf="programmeTransport.groupeTransport?.id" [routerLink]="['/groupe-transport', programmeTransport.groupeTransport?.id, 'view']">{{ programmeTransport.groupeTransport?.nom }}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="font-weight-bold" jhiTranslate="gatewayApp.transportProgrammeTransport.bus">Bus</span> :
+                        <div style="font-family: 'Comic Sans MS';color: green" *ngIf="programmeTransport.bus?.id" [routerLink]="['/bus', programmeTransport.bus?.id, 'view']">{{ programmeTransport.bus?.numero}}</div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/programme-transport', programmeTransport.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+
+        </div>
+    </div>
+</div>

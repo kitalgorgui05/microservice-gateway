@@ -1,0 +1,68 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.immoblierBatiment.home.title">List des batiments</span>
+        <button id="jh-create-entity"  class="btn btn-primary btn-sm float-right jh-create-entity create-batiment" [routerLink]="['/batiment/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.immoblierBatiment.home.createLabel">New</span>
+        </button>
+    </h3>
+    <form  name="filterData" role="form" novalidate [formGroup]="filterData">
+        <div class="row">
+            <div class="col-md-11">
+                <input class="form-control" type="text" name="filter" placeholder="Rechercher..." formControlName="filter">
+            </div>
+            <div class="col-md-1">
+                <button type="submit" id="save-entity" class="btn btn-primary">
+                    <fa-icon icon="search"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="batiments?.length === 0">
+        <span jhiTranslate="gatewayApp.immoblierBatiment.home.notFound">No batiments found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="batiments && batiments.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.immoblierBatiment.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nombreSalle"><span jhiTranslate="gatewayApp.immoblierBatiment.nombreSalle">Nombre Salle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let batiment of batiments ;trackBy: trackId">
+                    <td>{{ batiment.nom }}</td>
+                    <td>{{ batiment.nombreSalle }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/batiment', batiment.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/batiment', batiment.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(batiment)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+
+    <div *ngIf="batiments && batiments.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

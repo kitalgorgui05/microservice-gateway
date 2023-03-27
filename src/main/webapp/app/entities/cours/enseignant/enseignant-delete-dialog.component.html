@@ -1,0 +1,21 @@
+<form *ngIf="enseignant" name="deleteForm" (ngSubmit)="confirmDelete(enseignant?.id!)">
+    <div class="modal-header">
+        <h5 id="justify-center" class="modal-title" jhiTranslate="entity.delete.title">Confirm delete operation</h5>
+    </div>
+
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <p id="jhi-delete-enseignant-heading" class="p-delete" jhiTranslate="gatewayApp.coursEnseignant.delete.question" [translateValues]="{ id: enseignant.prenom }">Are you sure you want to delete this Enseignant?</p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button id="jhi-confirm-delete-enseignant" type="submit" class="btn btn-danger">
+            <fa-icon icon="times"></fa-icon>&nbsp;<span jhiTranslate="entity.action.delete">Delete</span>
+        </button>
+    </div>
+</form>

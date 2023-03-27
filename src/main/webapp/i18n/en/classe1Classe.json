@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "classe1Classe": {
+      "home": {
+        "title": "List Classes",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Classe",
+        "notFound": "No Classes found"
+      },
+      "delete": {
+        "question": "you want to delete Classe {{ id }}?"
+      },
+      "detail": {
+        "title": "Details Classe"
+      },
+      "nom": "Nom",
+      "mensualite": "Mensualite",
+      "niveau": "Niveau"
+    }
+  },
+  "classe1App": {
+    "classe1Classe": {
+      "created": "A new Classe is created with name {{ param }}",
+      "updated": "A Classe is updated with name {{ param }}",
+      "deleted": "A Classe is deleted with name {{ param }}"
+    }
+  }
+}

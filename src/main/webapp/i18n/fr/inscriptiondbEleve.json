@@ -1,0 +1,36 @@
+{
+  "gatewayApp": {
+    "inscriptiondbEleve": {
+      "home": {
+        "title": "Liste des élèves",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Eleve",
+        "notFound": "Aucun Eleve trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Eleve {{ id }} ?"
+      },
+      "detail": {
+        "title": "Details eleve"
+      },
+      "photo": "Photo",
+      "matricule": "Matricule",
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "sexe": "Sexe",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "email": "Email",
+      "dateNaissance": "Date Naissance",
+      "lieuNaissance": "Lieu Naissance",
+      "tuteur": "Tuteur"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbEleve": {
+      "created": "Un nouveau Eleve a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Eleve avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Eleve avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

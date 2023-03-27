@@ -1,0 +1,10 @@
+{
+  "gatewayApp": {
+    "ModePaiement": {
+      "null": "",
+      "ORANGE_MONEY": "ORANGE_MONEY",
+      "WAVE": "WAVE",
+      "CARTE_BANCAIRE": "CARTE_BANCAIRE"
+    }
+  }
+}

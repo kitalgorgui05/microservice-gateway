@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "evaluationEvaluation": {
+      "home": {
+        "title": "List of evaluations",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Evaluation",
+        "notFound": "No Evaluations found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Evaluation {{ id }}?"
+      },
+      "detail": {
+        "title": "Details Evaluation"
+      },
+      "type": "Type",
+      "dateEvaluation": "Date Evaluation",
+      "classe": "Classe",
+      "matiere": "Matiere",
+      "trimestre": "Trimestre"
+    }
+  },
+  "evaluationApp": {
+    "evaluationEvaluation": {
+      "created": "A new Evaluation is created with identifier {{ param }}",
+      "updated": "A Evaluation is updated with identifier {{ param }}",
+      "deleted": "A Evaluation is deleted with identifier {{ param }}"
+    }
+  }
+}

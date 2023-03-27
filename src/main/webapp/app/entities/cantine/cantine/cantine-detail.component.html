@@ -1,0 +1,32 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="cantine" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark">
+                    <span jhiTranslate="gatewayApp.cantineCantine.detail.title">Details</span> :{{ cantine.libelle }}
+                </span>
+            </div>
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="card jh-card">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <span jhiTranslate="gatewayApp.cantineCantine.libelle" class="font-weight-bold">Libelle</span>:
+                        <span>{{ cantine.libelle }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span jhiTranslate="gatewayApp.cantineCantine.nombreGroupe" class="font-weight-bold">Nombre Groupe</span> :
+                        <span>{{ cantine.nombreGroupe }}</span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+            <button type="button" [routerLink]="['/cantine', cantine.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "paiementdbReglement": {
+      "home": {
+        "title": "Reglements",
+        "createLabel": "Create a new Reglement",
+        "createOrEditLabel": "Create or edit a Reglement",
+        "notFound": "No Reglements found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Reglement {{ id }}?"
+      },
+      "detail": {
+        "title": "Reglement"
+      },
+      "date": "Date",
+      "montantInscription": "Montant Inscription",
+      "mensualite": "Mensualite",
+      "montantCantine": "Montant Cantine",
+      "montantTransport": "Montant Transport",
+      "idNiveau": "Id Niveau",
+      "idAnnee": "Id Annee",
+      "facture": "Facture"
+    }
+  },
+  "paiementdbApp": {
+    "paiementdbReglement": {
+      "created": "A new Reglement is created with identifier {{ param }}",
+      "updated": "A Reglement is updated with identifier {{ param }}",
+      "deleted": "A Reglement is deleted with identifier {{ param }}"
+    }
+  }
+}

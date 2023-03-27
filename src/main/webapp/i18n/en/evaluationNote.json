@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "evaluationNote": {
+      "home": {
+        "title": "List of notes",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Note",
+        "notFound": "No Notes found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Note {{ id }}?"
+      },
+      "detail": {
+        "title": "Details Note"
+      },
+      "note": "Note",
+      "eleve": "Eleve",
+      "apperciation": "Apperciation",
+      "evaluation": "Evaluation"
+    }
+  },
+  "evaluationApp": {
+    "evaluationNote": {
+      "created": "A new Note is created with identifier {{ param }}",
+      "updated": "A Note is updated with identifier {{ param }}",
+      "deleted": "A Note is deleted with identifier {{ param }}"
+    }
+  }
+}

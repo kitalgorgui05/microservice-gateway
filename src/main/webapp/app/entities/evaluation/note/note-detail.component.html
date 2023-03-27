@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="note">
+            <h2><span jhiTranslate="gatewayApp.evaluationNote.detail.title">Note</span> {{ note.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.evaluationNote.note">Note</span></dt>
+                <dd>
+                    <span>{{ note.note }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.evaluationNote.eleve">Eleve</span></dt>
+                <dd>
+                    <span>{{ note.eleve }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.evaluationNote.apperciation">Apperciation</span></dt>
+                <dd>
+                    <span>{{ note.apperciation }}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.evaluationNote.evaluation">Evaluation</span></dt>
+                <dd>
+                    <div *ngIf="note.evaluation?.id">
+                        <a [routerLink]="['/evaluation', note.evaluation?.id, 'view']">{{ note.evaluation?.type }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/note', note.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

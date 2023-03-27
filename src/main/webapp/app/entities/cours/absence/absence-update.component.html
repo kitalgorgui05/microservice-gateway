@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-absence-heading" jhiTranslate="gatewayApp.coursAbsence.home.createOrEditLabel">Create or edit a Absence</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div hidden class="form-group">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coursAbsence.idEleve" for="field_eleve">Eleve</label>
+                    <select class="form-control" id="field_eleve" name="idEleve" formControlName="idEleve">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="e.id" *ngFor="let e of eleves; trackBy: trackByIdEleve">{{e?.prenom }}&nbsp;{{e?.nom }}</option>
+                    </select>
+                </div>
+             <!--   <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coursAbsence.idEleve" for="field_idEleve">Id Eleve</label>
+                    <input type="text" class="form-control" name="idEleve" id="field_idEleve"
+                           formControlName="idEleve"/>
+                    <div *ngIf="editForm.get('idEleve')!.invalid && (editForm.get('idEleve')!.dirty || editForm.get('idEleve')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idEleve')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idEleve')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('idEleve')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>-->
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coursAbsence.motif" for="field_motif">Motif</label>
+                    <textarea class="form-control" name="motif" id="field_motif"
+                              formControlName="motif"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coursAbsence.etat" for="field_etat">Etat</label>
+                    <input type="checkbox" class="form-control" name="etat" id="field_etat"
+                           formControlName="etat"/>
+                    <div *ngIf="editForm.get('etat')!.invalid && (editForm.get('etat')!.dirty || editForm.get('etat')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etat')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coursAbsence.cours" for="field_cours">Cours</label>
+                    <select class="form-control" id="field_cours" name="cours" formControlName="cours">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="coursOption.id" *ngFor="let coursOption of cours; trackBy: trackById">{{ coursOption?.matiereClient?.nom }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

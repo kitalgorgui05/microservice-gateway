@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "inscriptiondbTuteur": {
+      "home": {
+        "title": "List of tuteurs",
+        "createLabel": "new",
+        "createOrEditLabel": "Create or edit a Tuteur",
+        "notFound": "No Tuteurs found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Tuteur {{ id }}?"
+      },
+      "detail": {
+        "title": "Details tuteur"
+      },
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "adresse": "Adresse",
+      "email": "Email",
+      "sexe": "Sexe"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbTuteur": {
+      "created": "A new Tuteur is created with identifier {{ param }}",
+      "updated": "A Tuteur is updated with identifier {{ param }}",
+      "deleted": "A Tuteur is deleted with identifier {{ param }}"
+    }
+  }
+}

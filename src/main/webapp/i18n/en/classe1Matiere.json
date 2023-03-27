@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "classe1Matiere": {
+      "home": {
+        "title": "List Matieres",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Matiere",
+        "notFound": "No Matieres found"
+      },
+      "delete": {
+        "question": "you want to delete Matiere {{ id }}?"
+      },
+      "detail": {
+        "title": "Details Matiere"
+      },
+      "nom": "Nom",
+      "niveau": "Niveau"
+    }
+  },
+  "classe1App": {
+    "classe1Matiere": {
+      "created": "A new Matiere is created with name {{ param }}",
+      "updated": "A Matiere is updated with name {{ param }}",
+      "deleted": "A Matiere is deleted with name {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="horaire" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark" jhiTranslate="gatewayApp.coursHoraire.detail.title">Horaire</span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+            <div class="card jh-card">
+                <dl class="row-md jh-entity-details text-center">
+                    <span class="font-weight-bold" jhiTranslate="gatewayApp.coursHoraire.horaire">Horaire</span> :
+                    <span style="font-family: 'Comic Sans MS';color: green">{{ horaire.heurDedut | date:'mediumTime'}}</span>
+                    <span style="font-family: 'Comic Sans MS';color: green">{{ horaire.heurFin | date:'mediumTime'}}</span>
+                </dl>
+            </div>
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/horaire', horaire.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

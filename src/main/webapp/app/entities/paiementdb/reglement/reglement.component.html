@@ -1,0 +1,83 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.paiementdbReglement.home.title">Reglements</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reglement" [routerLink]="['/reglement/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.paiementdbReglement.home.createLabel">
+            Create a new Reglement
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="reglements?.length === 0">
+        <span jhiTranslate="gatewayApp.paiementdbReglement.home.notFound">No reglements found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="reglements && reglements.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="gatewayApp.paiementdbReglement.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantInscription"><span jhiTranslate="gatewayApp.paiementdbReglement.montantInscription">Montant Inscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mensualite"><span jhiTranslate="gatewayApp.paiementdbReglement.mensualite">Mensualite</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantCantine"><span jhiTranslate="gatewayApp.paiementdbReglement.montantCantine">Montant Cantine</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="montantTransport"><span jhiTranslate="gatewayApp.paiementdbReglement.montantTransport">Montant Transport</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idNiveau"><span jhiTranslate="gatewayApp.paiementdbReglement.idNiveau">Id Niveau</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="idAnnee"><span jhiTranslate="gatewayApp.paiementdbReglement.idAnnee">Id Annee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reglement of reglements ;trackBy: trackId">
+                    <td><a [routerLink]="['/reglement', reglement.id, 'view']">{{ reglement.id }}</a></td>
+                    <td>{{ reglement.date | date:'mediumDate' }}</td>
+                    <td>{{ reglement.montantInscription }}</td>
+                    <td>{{ reglement.mensualite }}</td>
+                    <td>{{ reglement.montantCantine }}</td>
+                    <td>{{ reglement.montantTransport }}</td>
+                    <td>{{ reglement.idNiveau }}</td>
+                    <td>{{ reglement.idAnnee }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/reglement', reglement.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/reglement', reglement.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(reglement)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="reglements && reglements.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

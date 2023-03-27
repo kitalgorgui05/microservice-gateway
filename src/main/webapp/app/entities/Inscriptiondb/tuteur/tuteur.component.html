@@ -1,0 +1,66 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.home.title">Liste of tuteurs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-tuteur" [routerLink]="['/tuteur/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.inscriptiondbTuteur.home.createLabel">
+            New
+            </span>
+        </button>
+    </h3>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tuteurs?.length === 0">
+        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.home.notFound">No tuteurs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tuteurs && tuteurs.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sexe"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.sexe">Sexe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tuteur of tuteurs ;trackBy: trackId">
+                    <td>{{ tuteur.prenom }}</td>
+                    <td>{{ tuteur.nom }}</td>
+                    <td>{{ tuteur.adresse }}</td>
+                    <td>{{ tuteur.email }}</td>
+                    <td jhiTranslate="{{ 'gatewayApp.Sexe.' + tuteur.sexe }}">{{ tuteur.sexe }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/tuteur', tuteur.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/tuteur', tuteur.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(tuteur)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+
+    <div *ngIf="tuteurs && tuteurs.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

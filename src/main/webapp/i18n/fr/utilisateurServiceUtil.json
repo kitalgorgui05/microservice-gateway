@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "utilisateurServiceUtil": {
+      "home": {
+        "title": "ServiceUtils",
+        "createLabel": "Créer un nouveau Service Util",
+        "createOrEditLabel": "Créer ou éditer un Service Util",
+        "notFound": "Aucun Service Util trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Service Util {{ id }} ?"
+      },
+      "detail": {
+        "title": "Service Util"
+      },
+      "code": "Code",
+      "libelle": "Libelle",
+      "description": "Description"
+    }
+  },
+  "utilisateurApp": {
+    "utilisateurServiceUtil": {
+      "created": "Un nouveau Service Util a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Service Util avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Service Util avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "gatewayApp": {
+    "classe1Niveau": {
+      "home": {
+        "title": "Niveaus",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Niveau",
+        "notFound": "Ningún Niveaus encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Niveau {{ id }}?"
+      },
+      "detail": {
+        "title": "Niveau"
+      },
+      "nom": "Nom",
+      "matiere": "Matiere"
+    }
+  },
+  "classe1App": {
+    "classe1Niveau": {
+      "created": "Un nuevo Niveau ha sido creado con el identificador {{ param }}",
+      "updated": "Un Niveau ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Niveau ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "utilisateurUtilisateur": {
+      "home": {
+        "title": "Utilisateurs",
+        "createLabel": "Créer un nouveau Utilisateur",
+        "createOrEditLabel": "Créer ou éditer un Utilisateur",
+        "notFound": "Aucun Utilisateur trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Utilisateur {{ id }} ?"
+      },
+      "detail": {
+        "title": "Utilisateur"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "sexe": "Sexe",
+      "telephone": "Telephone",
+      "adresse": "Adresse",
+      "cin": "Cin",
+      "email": "Email",
+      "password": "Password",
+      "serviceUtil": "Service Util",
+      "profiles": "Profiles"
+    }
+  },
+  "utilisateurApp": {
+    "utilisateurUtilisateur": {
+      "created": "Un nouveau Utilisateur a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Utilisateur avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Utilisateur avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

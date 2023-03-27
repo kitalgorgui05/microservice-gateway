@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "Sexe": {
+      "null": "",
+      "MASCULIN": "MASCULIN",
+      "FEMININ": "FEMININ"
+    }
+  }
+}

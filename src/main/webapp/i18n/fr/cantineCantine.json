@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "cantineCantine": {
+      "home": {
+        "title": "Liste des cantines",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Cantine",
+        "notFound": "Aucun Cantine trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer la {{ id }} ?"
+      },
+      "detail": {
+        "title": "Details cantine"
+      },
+      "libelle": "Libelle",
+      "nombreGroupe": "Nombre Groupe",
+      "groupecantines": "Groupecantines"
+    }
+  },
+  "cantineApp": {
+    "cantineCantine": {
+      "created": "Un nouveau Cantine a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cantine avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cantine avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

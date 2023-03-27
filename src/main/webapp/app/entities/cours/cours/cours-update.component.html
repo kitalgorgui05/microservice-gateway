@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="form-control-label" for="niveau">Niveau</label>
+                <select class="form-control" id="niveau" name="idNiveau"  formControlName="niveau">
+                    <option [ngValue]="null"></option>
+                    <option [ngValue]="n.id" *ngFor="let n of niveaus">{{n?.nom}}</option>
+                </select>
+            </div>
+        </div>
+        <form class="forme" name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <div class="badges">
+                <span class="badge badge-dark"   id="jhi-cours-heading" jhiTranslate="gatewayApp.coursCours.home.createOrEditLabel">
+                    Create or edit a Cours
+                </span>
+            </div>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" hidden>
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.coursCours.idClasse" for="field_idClasse">Classe</label>
+                            <select class="form-control" id="field_idClasse" name="idClasse" formControlName="idClasse">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="c.id" *ngFor="let c of classes">{{c?.nom}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.coursCours.idMatiere" for="field_idMatiere">Matieres</label>
+                            <select class="form-control" id="field_idMatiere" name="idMatiere" formControlName="idMatiere">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="m.id"  *ngFor="let m of matieres">{{m?.nom}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-control-label" jhiTranslate="gatewayApp.coursCours.idAnnee" for="field_idAnnee">Annee</label>
+                                <select class="form-control" id="field_idAnnee" name="idAnnee" formControlName="idAnnee">
+                                    <option [ngValue]="null"></option>
+                                    <option [ngValue]="a.id" *ngFor="let a of annees">{{a?.nom}}</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.coursCours.enseignant" for="field_enseignant">Enseignant</label>
+                            <select class="form-control" id="field_enseignant" name="enseignant" formControlName="enseignant">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="enseignantOption.id" *ngFor="let enseignantOption of enseignants; trackBy: trackById">{{ enseignantOption.prenom }}&nbsp;{{ enseignantOption.nom }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="gatewayApp.coursCours.horaire" for="field_horaire">Horaire</label>
+                            <select class="form-control" id="field_horaire" name="horaire" formControlName="horaire">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="horaireOption.id" *ngFor="let horaireOption of horaires; trackBy: trackById">{{ horaireOption.heurDedut | date:'mediumTime'}}&nbsp;-&nbsp;{{ horaireOption.heurFin | date:'mediumTime'}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <button type="button" id="cancel-save"  class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

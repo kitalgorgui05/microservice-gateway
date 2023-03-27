@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "inscriptiondbInscription": {
+      "home": {
+        "title": "List de inscriptions",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Inscription",
+        "notFound": "Ningún Inscriptions encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Inscription {{ id }}?"
+      },
+      "detail": {
+        "title": "Details inscription"
+      },
+      "dateInscription": "Date Inscription",
+      "classe": "Classe",
+      "transport": "Transport",
+      "groupeTransport": "Groupe Transport",
+      "cantine": "Cantine",
+      "groupeCantine": "Groupe Cantine",
+      "paiement": "Paiement",
+      "statut": "Statut",
+      "eleve": "Eleve",
+      "annee": "Annee"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbInscription": {
+      "created": "Un nuevo Inscription ha sido creado con el identificador {{ param }}",
+      "updated": "Un Inscription ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Inscription ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

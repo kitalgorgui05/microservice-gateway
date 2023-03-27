@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "inscriptiondbInscription": {
+      "home": {
+        "title": "List of inscriptions",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Inscription",
+        "notFound": "No Inscriptions found"
+      },
+      "delete": {
+        "question": "you want to delete Inscription {{ id }}?"
+      },
+      "detail": {
+        "title": "Details inscription"
+      },
+      "dateInscription": "Date Inscription",
+      "classe": "Classe",
+      "transport": "Transport",
+      "groupeTransport": "Groupe Transport",
+      "cantine": "Cantine",
+      "groupeCantine": "Groupe Cantine",
+      "paiement": "Paiement",
+      "statut": "Statut",
+      "eleve": "Eleve",
+      "annee": "Annee"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbInscription": {
+      "created": "A new Inscription is created with identifier {{ param }}",
+      "updated": "A Inscription is updated with identifier {{ param }}",
+      "deleted": "A Inscription is deleted with identifier {{ param }}"
+    }
+  }
+}

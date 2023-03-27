@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "evaluationTrimestre": {
+      "home": {
+        "title": "Lista de trimestres",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Trimestre",
+        "notFound": "Ningún Trimestres encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Trimestre {{ id }}?"
+      },
+      "detail": {
+        "title": "Details Trimestre"
+      },
+      "dateDebut": "Date Debut",
+      "dateFin": "Date Fin",
+      "annee": "Annee"
+    }
+  },
+  "evaluationApp": {
+    "evaluationTrimestre": {
+      "created": "Un nuevo Trimestre ha sido creado con el identificador {{ param }}",
+      "updated": "Un Trimestre ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Trimestre ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

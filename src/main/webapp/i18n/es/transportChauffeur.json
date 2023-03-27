@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "transportChauffeur": {
+      "home": {
+        "title": "Lista de conductor",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Chauffeur",
+        "notFound": "Ningún Chauffeurs encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Chauffeur {{ id }}?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "prenom": "Prenom",
+      "nom": "Nom",
+      "dateNaissance": "Date Naissance",
+      "lieuNaissance": "Lieu Naissance",
+      "cin": "Cin",
+      "telephone": "Telephone",
+      "adresse": "Adresse"
+    }
+  },
+  "transportApp": {
+    "transportChauffeur": {
+      "created": "Un nuevo Chauffeur ha sido creado con el identificador {{ param }}",
+      "updated": "Un Chauffeur ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Chauffeur ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

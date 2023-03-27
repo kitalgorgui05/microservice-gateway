@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "coursAbsence": {
+      "home": {
+        "title": "List of absences",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Absence",
+        "notFound": "No Absences found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete {{ id }}?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "idEleve": "Id Eleve",
+      "motif": "Motif",
+      "etat": "Etat",
+      "cours": "Cours"
+    }
+  },
+  "coursApp": {
+    "coursAbsence": {
+      "created": "A new Absence is created with identifier {{ param }}",
+      "updated": "A Absence is updated with identifier {{ param }}",
+      "deleted": "A Absence is deleted with identifier {{ param }}"
+    }
+  }
+}

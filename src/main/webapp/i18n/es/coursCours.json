@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "coursCours": {
+      "home": {
+        "title": "Lista de cours",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Cours",
+        "notFound": "Ningún Cours encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar {{ id }}?"
+      },
+      "detail": {
+        "title": "Details"
+      },
+      "idMatiere": "Id Matiere",
+      "idClasse": "Id Classe",
+      "idAnnee": "Id Annee",
+      "absence": "Absence",
+      "enseignant": "Enseignant",
+      "horaire": "Horaire"
+    }
+  },
+  "coursApp": {
+    "coursCours": {
+      "created": "Un nuevo Cours ha sido creado con el identificador {{ param }}",
+      "updated": "Un Cours ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Cours ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

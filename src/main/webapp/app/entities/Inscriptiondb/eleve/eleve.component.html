@@ -1,0 +1,75 @@
+<div>
+    <h3 id="page-heading">
+        <span jhiTranslate="gatewayApp.inscriptiondbEleve.home.title">List of student</span>
+
+        <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-eleve" [routerLink]="['/eleve/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="gatewayApp.inscriptiondbEleve.home.createLabel">
+                New
+            </span>
+        </button>
+    </h3>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="eleves?.length === 0">
+        <span jhiTranslate="gatewayApp.inscriptiondbEleve.home.notFound">No eleves found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="eleves && eleves.length > 0">
+        <table class="table table-striped table-hover" aria-describedby="page-heading">
+            <thead class="bg-dark">
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="photo"><span jhiTranslate="gatewayApp.inscriptiondbEleve.photo">Photo</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="gatewayApp.inscriptiondbEleve.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.inscriptiondbEleve.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sexe"><span jhiTranslate="gatewayApp.inscriptiondbEleve.sexe">Sexe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="gatewayApp.inscriptiondbEleve.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateNaissance"><span jhiTranslate="gatewayApp.inscriptiondbEleve.dateNaissance">Date Naissance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lieuNaissance"><span jhiTranslate="gatewayApp.inscriptiondbEleve.lieuNaissance">Lieu Naissance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let eleve of eleves ;trackBy: trackId">
+                    <td>
+                        <a *ngIf="eleve.photo" (click)="openFile(eleve.photoContentType, eleve.photo)">
+                            <img [src]="'data:' + eleve.photoContentType + ';base64,' + eleve.photo" style="max-height: 30px;" alt="eleve image"/>
+                        </a>
+                        <!--<span *ngIf="eleve.photo">{{ eleve.photoContentType }}, {{ byteSize(eleve.photo) }}</span>-->
+                    </td>
+                    <td>{{ eleve.prenom }}</td>
+                    <td>{{ eleve.nom }}</td>
+                    <td jhiTranslate="{{ 'gatewayApp.Sexe.' + eleve.sexe }}">{{ eleve.sexe }}</td>
+                    <td>{{ eleve.adresse }}</td>
+                    <td>{{ eleve.dateNaissance | date:'mediumDate' }}</td>
+                    <td>{{ eleve.lieuNaissance }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [routerLink]="['/eleve', eleve.id, 'view']" class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                            </button>
+
+                            <button type="submit" [routerLink]="['/eleve', eleve.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                            </button>
+
+                            <button type="submit" (click)="delete(eleve)" class="btn btn-danger btn-sm">
+                                <fa-icon icon="trash-alt"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+    </div>
+
+    <div *ngIf="eleves && eleves.length > 0">
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

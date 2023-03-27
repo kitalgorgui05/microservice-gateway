@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "inscriptiondbInscription": {
+      "home": {
+        "title": "Liste des inscriptions",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Inscription",
+        "notFound": "Aucun Inscription trouvé"
+      },
+      "delete": {
+        "question": "voulez-vous supprimer l'Inscription {{ id }} ?"
+      },
+      "detail": {
+        "title": "Details inscription"
+      },
+      "dateInscription": "Date Inscription",
+      "classe": "Classe",
+      "transport": "Transport",
+      "groupeTransport": "Groupe Transport",
+      "cantine": "Cantine",
+      "groupeCantine": "Groupe Cantine",
+      "paiement": "Paiement",
+      "statut": "Statut",
+      "eleve": "Eleve",
+      "annee": "Annee"
+    }
+  },
+  "inscriptiondbApp": {
+    "inscriptiondbInscription": {
+      "created": "Un nouveau Inscription a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Inscription avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Inscription avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

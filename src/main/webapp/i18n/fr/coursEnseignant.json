@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "coursEnseignant": {
+      "home": {
+        "title": "Liste des enseignants",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Enseignant",
+        "notFound": "Aucun Enseignant trouvé"
+      },
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Enseignant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Details Enseignants"
+      },
+      "nom": "Nom",
+      "prenom": "Prenom",
+      "adresse": "Adresse",
+      "telephone": "Telephone",
+      "email": "Email",
+      "cours": "Cours"
+    }
+  },
+  "coursApp": {
+    "coursEnseignant": {
+      "created": "Un nouveau Enseignant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Enseignant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Enseignant avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div *ngIf="trimestre" class="forme">
+            <div class="badges">
+                <span class="badge badge-dark" jhiTranslate="gatewayApp.evaluationTrimestre.detail.title">Trimestre</span>
+            </div>
+
+            <jhi-alert-error></jhi-alert-error>
+            <div class="card jh-card">
+                <div class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <span jhiTranslate="gatewayApp.evaluationTrimestre.dateDebut">Date Debut</span> :
+                        <span>{{ trimestre.dateDebut }}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span jhiTranslate="gatewayApp.evaluationTrimestre.dateFin">Date Fin</span>
+                        <span>{{ trimestre.dateFin }}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <span jhiTranslate="gatewayApp.evaluationTrimestre.annee">Annee</span>
+                        <span>{{ trimestre.anneeClient?.nom }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <button type="submit" (click)="previousState()" class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button" [routerLink]="['/trimestre', trimestre.id, 'edit']" class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

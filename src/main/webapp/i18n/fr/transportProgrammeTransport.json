@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "transportProgrammeTransport": {
+      "home": {
+        "title": "Liste des programmes_T",
+        "createLabel": "Nouveau",
+        "createOrEditLabel": "Créer ou éditer un Programme Transport",
+        "notFound": "Aucun Programme Transport trouvé"
+      },
+      "delete": {
+        "question": "Voullez-vous supprimer le Programme Transport {{ id }} ?"
+      },
+      "detail": {
+        "title": "Détails"
+      },
+      "heurDepart": "Heur Depart",
+      "dateDepart": "Date Depart",
+      "groupeTransport": "Groupe Transport",
+      "bus": "Bus"
+    }
+  },
+  "transportApp": {
+    "transportProgrammeTransport": {
+      "created": "Un nouveau Programme Transport a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Programme Transport avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Programme Transport avec l'identifiant {{ param }} a été supprimé"
+    }
+  }
+}

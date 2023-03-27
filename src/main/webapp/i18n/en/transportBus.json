@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "transportBus": {
+      "home": {
+        "title": "List of bus",
+        "createLabel": "New",
+        "createOrEditLabel": "Create or edit a Bus",
+        "notFound": "No Buses found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete  {{ id }}?"
+      },
+      "detail": {
+        "title": "Details:"
+      },
+      "matricule": "Matricule",
+      "numero": "Numero",
+      "nombreplace": "Nombreplace",
+      "chauffeur": "Chauffeur"
+    }
+  },
+  "transportApp": {
+    "transportBus": {
+      "created": "A new Bus is created with identifier {{ param }}",
+      "updated": "A Bus is updated with identifier {{ param }}",
+      "deleted": "A Bus is deleted with identifier {{ param }}"
+    }
+  }
+}

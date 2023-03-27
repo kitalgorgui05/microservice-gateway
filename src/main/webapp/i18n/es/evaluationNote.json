@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "evaluationNote": {
+      "home": {
+        "title": "Lista de notes",
+        "createLabel": "Nuevo",
+        "createOrEditLabel": "Crear o editar Note",
+        "notFound": "Ningún Notes encontrado"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Note {{ id }}?"
+      },
+      "detail": {
+        "title": "Details Note"
+      },
+      "note": "Note",
+      "eleve": "Eleve",
+      "apperciation": "Apperciation",
+      "evaluation": "Evaluation"
+    }
+  },
+  "evaluationApp": {
+    "evaluationNote": {
+      "created": "Un nuevo Note ha sido creado con el identificador {{ param }}",
+      "updated": "Un Note ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Note ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}
