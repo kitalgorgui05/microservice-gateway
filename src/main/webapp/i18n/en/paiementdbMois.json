@@ -2,8 +2,8 @@
   "gatewayApp": {
     "paiementdbMois": {
       "home": {
-        "title": "Mois",
-        "createLabel": "Create a new Mois",
+        "title": "List mois",
+        "createLabel": "New",
         "createOrEditLabel": "Create or edit a Mois",
         "notFound": "No Mois found"
       },
@@ -11,7 +11,7 @@
         "question": "Are you sure you want to delete Mois {{ id }}?"
       },
       "detail": {
-        "title": "Mois"
+        "title": "Details mois"
       },
       "nom": "Nom",
       "facture": "Facture"

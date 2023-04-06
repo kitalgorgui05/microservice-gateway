@@ -17,7 +17,7 @@ export class LoginService {
   logout(): void {
     this.authServerProvider.logout().subscribe((logout: Logout) => {
       let logoutUrl = logout.logoutUrl;
-      const redirectUri = `${location.origin}${this.location.prepareExternalUrl('/')}`;
+      const redirectUri = `${location.origin}${this.location.prepareExternalUrl('lo')}`;
 
       // if Keycloak, uri has protocol/openid-connect/token
       if (logoutUrl.includes('/protocol')) {

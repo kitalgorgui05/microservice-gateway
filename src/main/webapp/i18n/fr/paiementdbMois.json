@@ -2,13 +2,13 @@
   "gatewayApp": {
     "paiementdbMois": {
       "home": {
-        "title": "Mois",
-        "createLabel": "Créer un nouveau Mois",
+        "title": "Liste des mois",
+        "createLabel": "Nouveau",
         "createOrEditLabel": "Créer ou éditer un Mois",
         "notFound": "Aucun Mois trouvé"
       },
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Mois {{ id }} ?"
+        "question": "Voulez-vous supprimer le Mois {{ id }} ?"
       },
       "detail": {
         "title": "Mois"

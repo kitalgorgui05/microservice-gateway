@@ -2,24 +2,24 @@
   "gatewayApp": {
     "paiementdbReglement": {
       "home": {
-        "title": "Reglements",
-        "createLabel": "Créer un nouveau Reglement",
+        "title": "Liste des reglements",
+        "createLabel": "Nouveau",
         "createOrEditLabel": "Créer ou éditer un Reglement",
         "notFound": "Aucun Reglement trouvé"
       },
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Reglement {{ id }} ?"
+        "question": "Voulez-vous supprimer le Reglement {{ id }} ?"
       },
       "detail": {
-        "title": "Reglement"
+        "title": "Détails reglement"
       },
       "date": "Date",
       "montantInscription": "Montant Inscription",
       "mensualite": "Mensualite",
       "montantCantine": "Montant Cantine",
       "montantTransport": "Montant Transport",
-      "idNiveau": "Id Niveau",
-      "idAnnee": "Id Annee",
+      "idNiveau": "Niveau",
+      "idAnnee": "Annee",
       "facture": "Facture"
     }
   },

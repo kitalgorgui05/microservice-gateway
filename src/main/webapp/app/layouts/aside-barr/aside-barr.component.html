@@ -11,10 +11,8 @@
             </div>
             <div class="info">
                 <div [ngSwitch]="isAuthenticated()">
-                    <div class="alert alert-success" *ngSwitchCase="true">
-                        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
-                            [translateValues]="{ username: account.login }">{{ users.username }}
-                        </span>
+                    <div *ngSwitchCase="true">
+                        <span style="font-family: 'Comic Sans MS', Helvetica, Arial, sans-serif" *ngIf="account"> {{account.lastName}} | {{ account.login }}</span>
                     </div>
                 </div>
             </div>
@@ -22,7 +20,6 @@
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
                 <li class="nav-item menu-open">
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
@@ -103,10 +100,7 @@
                 <li class="nav-item mb-2">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Cours
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                        <p>Cours<i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
@@ -199,7 +193,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item mb-2">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-house-damage"></i>
                         <p>
@@ -222,35 +216,59 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item mt-4">
+                <li class="nav-item mb-2">
                     <a href="#" class="nav-link">
-                        <i class="fas fa-cogs"></i>
-                        <p>
-                            Configuration
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                        <i class="fas fa-tasks"></i>
+                        <p>Evaluation<i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a href="pages/tables/simple.html" class="nav-link">
+                            <a  class="nav-link" routerLink="evaluation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Simple Tables</p>
+                                <span jhiTranslate="global.menu.entities.evaluationEvaluation">Evaluation</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/data.html" class="nav-link">
+                            <a  class="nav-link" routerLink="trimestre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>DataTables</p>
+                                <span jhiTranslate="global.menu.entities.evaluationTrimestre">Trimestre</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/tables/jsgrid.html" class="nav-link">
+                            <a  class="nav-link" routerLink="note" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>jsGrid</p>
+                                <span jhiTranslate="global.menu.entities.evaluationNote">Note</span>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-dollar-sign"></i>
+                        <p>Payement<i class="fas fa-angle-left right"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview ml-2">
+                        <li class="nav-item">
+                            <a  class="nav-link" routerLink="facture" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.paiementdbFacture">Facture</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" routerLink="reglement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.paiementdbReglement">Reglement</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a  class="nav-link" routerLink="mois" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="far fa-circle nav-icon"></i>
+                                <span jhiTranslate="global.menu.entities.paiementdbMois">Mois</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
     </div>

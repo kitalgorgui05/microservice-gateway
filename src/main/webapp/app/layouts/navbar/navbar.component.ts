@@ -8,6 +8,7 @@ import { LANGUAGES } from 'app/core/language/language.constants';
 import { AccountService } from 'app/core/auth/account.service';
 import { LoginService } from 'app/core/login/login.service';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
+import {KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'jhi-navbar',
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
+    private kc: KeycloakService,
     private languageService: JhiLanguageService,
     private sessionStorage: SessionStorageService,
     private accountService: AccountService,
@@ -59,7 +61,7 @@ export class NavbarComponent implements OnInit {
   logout(): void {
     this.collapseNavbar();
     this.loginService.logout();
-    this.router.navigate(['']);
+    this.kc.logout("http://localhost:9080/auth")
   }
 
   toggleNavbar(): void {

@@ -2,21 +2,21 @@
   "gatewayApp": {
     "paiementdbFacture": {
       "home": {
-        "title": "Factures",
-        "createLabel": "Créer un nouveau Facture",
+        "title": "Liste des factures",
+        "createLabel": "Nouveau",
         "createOrEditLabel": "Créer ou éditer un Facture",
         "notFound": "Aucun Facture trouvé"
       },
       "delete": {
-        "question": "Etes-vous certain de vouloir supprimer le Facture {{ id }} ?"
+        "question": "Voulez-vous supprimer le Facture {{ id }} ?"
       },
       "detail": {
-        "title": "Facture"
+        "title": "Détails facture"
       },
       "date": "Date",
       "code": "Code",
       "paiee": "Paiee",
-      "idEleve": "Id Eleve",
+      "idEleve": "Eleve",
       "mois": "Mois",
       "paiement": "Paiement"
     }

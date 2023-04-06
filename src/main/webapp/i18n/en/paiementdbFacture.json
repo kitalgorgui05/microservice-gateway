@@ -2,8 +2,8 @@
   "gatewayApp": {
     "paiementdbFacture": {
       "home": {
-        "title": "Factures",
-        "createLabel": "Create a new Facture",
+        "title": "List factures",
+        "createLabel": "New",
         "createOrEditLabel": "Create or edit a Facture",
         "notFound": "No Factures found"
       },
@@ -16,7 +16,7 @@
       "date": "Date",
       "code": "Code",
       "paiee": "Paiee",
-      "idEleve": "Id Eleve",
+      "idEleve": "Eleve",
       "mois": "Mois",
       "paiement": "Paiement"
     }
