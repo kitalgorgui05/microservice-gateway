@@ -6,10 +6,10 @@ import { Account } from 'app/core/user/account.model';
 import {BatimentService} from "app/entities/immoblier/batiment/batiment.service";
 import {ChartDataSets, ChartType} from "chart.js";
 import { Label } from 'ng2-charts';
-import {EleveService} from "app/entities/Inscriptiondb/eleve/eleve.service";
 import {InscriptionService} from "app/entities/Inscriptiondb/inscription/inscription.service";
 import {EnseignantService} from "app/entities/cours/enseignant/enseignant.service";
 import {ClasseService} from "app/entities/classe1/classe/classe.service";
+import {EleveService} from "app/entities/Inscriptiondb/inscription/eleve.service";
 
 @Component({
   selector: 'jhi-home',
@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
 
     countEleve():any{
     return this.eleveService.countEleve().subscribe({
-      next:(data)=>{
+      next:(data: Number)=>{
         this.nombreEleve=data;
       }
     });

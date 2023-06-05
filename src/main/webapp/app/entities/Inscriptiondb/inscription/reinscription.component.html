@@ -1,0 +1,49 @@
+<div class="modal-header">
+    <div class="justify-content-center">
+        <h5 class="modal-title font text-center m-auto">Réinscription</h5>
+    </div>
+</div>
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+<div class="modal-body pad">
+        <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbInscription.dateInscription" for="field_dateInscription">Date Inscription</label>
+        <div class="d-flex">
+            <input id="field_dateInscription" type="datetime-local" class="form-control font" name="dateInscription" formControlName="dateInscription" placeholder="YYYY-MM-DD HH:mm"/>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label font">Classe</label>
+            <select class="form-control font" name="classe" formControlName="classe">
+               <option [ngValue]="null">choisir la classe</option>
+                <option [ngValue]="c.id" *ngFor="let c of classes">{{c?.nom}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label font">Annee</label>
+            <select class="form-control font" name="annee" formControlName="annee">
+                <option [ngValue]="null">Choisir annee</option>
+               <option  [ngValue]="a.id" *ngFor="let a of annees">{{ a?.nom }}</option>
+            </select>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbInscription.cantine" for="field_cantine">Cantine</label>
+                    <input type="checkbox" class="form-control-md font" name="cantine" id="field_cantine" formControlName="cantine"/>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-control-label-md font" jhiTranslate="gatewayApp.inscriptiondbInscription.transport" for="field_transport">Transport</label>
+                    <input type="checkbox" class="form-control-md font" name="transport" id="field_transport" formControlName="transport"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 modal-footer justify-content-center">
+            <button type="submit" id="save-entity" class="btn btn-primary"><span jhiTranslate="entity.action.save">Save</span>
+            </button>
+            <button data-dismiss="modal" class="btn btn-secondary float-left" type="button" (click)="dismiss()">Done</button>
+        </div>
+</div>
+</form>
+
+
+

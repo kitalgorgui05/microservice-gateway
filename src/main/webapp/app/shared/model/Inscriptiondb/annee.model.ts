@@ -8,5 +8,10 @@ export interface IAnnee {
 }
 
 export class Annee implements IAnnee {
-  constructor(public id?: number, public nom?: string, public dateDebut?: Moment, public dateFin?: Moment) {}
+  constructor(
+    public id?: number,
+    public nom?: string,
+    public dateDebut?: Moment,
+    public dateFin?: Moment
+  ) {}
 }

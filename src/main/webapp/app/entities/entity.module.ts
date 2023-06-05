@@ -78,10 +78,6 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./Inscriptiondb/tuteur/tuteur.module').then(m => m.InscriptiondbTuteurModule),
       },
       {
-        path: 'eleve',
-        loadChildren: () => import('./Inscriptiondb/eleve/eleve.module').then(m => m.InscriptiondbEleveModule),
-      },
-      {
         path: 'inscription',
         loadChildren: () => import('./Inscriptiondb/inscription/inscription.module').then(m => m.InscriptiondbInscriptionModule),
       },

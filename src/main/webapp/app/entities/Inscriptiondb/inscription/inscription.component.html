@@ -17,25 +17,25 @@
                         </select>
                     </div>-->
                     <div class="col-md-4">
-                        <select class="form-control" name="classe"  formControlName="classe">
+                        <select class="form-control" name="classe"  formControlName="classe" (ngModelChange)="afficher()">
                             <option>Select classe...</option>
                            <option [ngValue]="classe?.id" *ngFor="let classe of classes">{{classe?.nom}}</option>
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select class="form-control" name="annee"  formControlName="annee">
+                        <select class="form-control" name="annee"  formControlName="annee" (ngModelChange)="afficher()">
                             <option>Select année ...</option>
                            <option [ngValue]="annee?.id" *ngFor="let annee of annees">{{annee?.nom}}</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
+                    <!--<div class="col-md-4">
                         <button type="submit" id="save-entity" class="btn btn-primary" (click)="afficher()">
                             <fa-icon icon="save"></fa-icon>&nbsp;<span>Search</span>
                         </button>
                         <button type="button" id="cancel-save" class="btn btn-secondary">
                             <fa-icon icon="ban"></fa-icon>&nbsp;<span>initialiser</span>
                         </button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -50,35 +50,35 @@
         <table class="table table-striped table-hover" aria-describedby="page-heading">
             <thead class="bg-dark">
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="dateInscription"><span jhiTranslate="gatewayApp.inscriptiondbInscription.dateInscription">Date Inscription</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="classe"><span jhiTranslate="gatewayApp.inscriptiondbInscription.classe">Classe</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="transport"><span jhiTranslate="gatewayApp.inscriptiondbInscription.transport">Transport</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="cantine"><span jhiTranslate="gatewayApp.inscriptiondbInscription.cantine">Cantine</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="eleveId"><span jhiTranslate="gatewayApp.inscriptiondbInscription.eleve">Eleve</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="anneeId"><span jhiTranslate="gatewayApp.inscriptiondbInscription.annee">Annee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateInscription"><span jhiTranslate="gatewayApp.inscriptiondbInscription.dateInscription" class="font">Date Inscription</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="classe"><span jhiTranslate="gatewayApp.inscriptiondbInscription.classe" class="font">Classe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="transport"><span jhiTranslate="gatewayApp.inscriptiondbInscription.transport" class="font">Transport</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="cantine"><span jhiTranslate="gatewayApp.inscriptiondbInscription.cantine" class="font">Cantine</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="eleveId"><span jhiTranslate="gatewayApp.inscriptiondbInscription.eleve" class="font">Eleve</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="anneeId"><span jhiTranslate="gatewayApp.inscriptiondbInscription.annee" class="font">Annee</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let inscription of inscriptions ;trackBy: trackId">
-                    <td>{{ inscription.dateInscription | date:'medium' }}</td>
-                    <td>{{ inscription.classeClient?.nom }}</td>
-                    <td>{{ inscription.transport }}</td>
-                    <td>{{ inscription.cantine }}</td>
+                    <td class="font">{{ inscription.dateInscription | date:'medium' }}</td>
+                    <td class="font">{{ inscription.classeClient?.nom }}</td>
+                    <td class="font">{{ inscription.transport }}</td>
+                    <td class="font">{{ inscription.cantine }}</td>
                    <!-- <td jhiTranslate="{{ 'gatewayApp.Etat.' + inscription.statut }}">{{ inscription.statut }}</td>-->
                     <td>
                         <div *ngIf="inscription.eleve?.id">
-                            <div [routerLink]="['/eleve', inscription.eleve?.id , 'view']" >{{ inscription.eleve?.prenom }} &nbsp; {{ inscription.eleve?.nom }}</div>
+                            <div [routerLink]="['/eleve', inscription.eleve?.id , 'view']" class="font" >{{ inscription.eleve?.prenom }} &nbsp; {{ inscription.eleve?.nom }}</div>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="inscription.annee?.id">
-                            <div [routerLink]="['/annee', inscription.annee?.id , 'view']" >{{ inscription.annee?.nom }}</div>
+                            <div [routerLink]="['/annee', inscription.annee?.id , 'view']" class="font">{{ inscription.annee?.nom }}</div>
                         </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
-                            <button type="submit" [routerLink]="" class="bnt btn-secondary btn-sm">
+                            <button type="submit"  (click)="reinscrire(inscription)" class="bnt btn-secondary btn-sm">
                                 <fa-icon icon="user-plus"></fa-icon>
                             </button>
                             <button type="submit" [routerLink]="['/inscription', inscription.id, 'view']" class="btn btn-info btn-sm">
@@ -106,3 +106,15 @@
         </div>
     </div>
 </div>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Modal</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        This is a modal.
+    </div>
+</ng-template>

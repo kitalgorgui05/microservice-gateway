@@ -1,10 +1,10 @@
 <div>
     <h3 id="page-heading">
-        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.home.title">Liste of tuteurs</span>
+        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.home.title" class="font">Liste of tuteurs</span>
 
         <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-tuteur" [routerLink]="['/tuteur/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="gatewayApp.inscriptiondbTuteur.home.createLabel">
+            <span  jhiTranslate="gatewayApp.inscriptiondbTuteur.home.createLabel" class="font">
             New
             </span>
         </button>
@@ -22,21 +22,21 @@
         <table class="table table-striped table-hover" aria-describedby="page-heading">
             <thead class="bg-dark">
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="sexe"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.sexe">Sexe</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="prenom"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.prenom" class="font">Prenom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.nom" class="font">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="adresse"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.adresse" class="font">Adresse</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="email"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.email" class="font">Email</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sexe"><span jhiTranslate="gatewayApp.inscriptiondbTuteur.sexe" class="font">Sexe</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let tuteur of tuteurs ;trackBy: trackId">
-                    <td>{{ tuteur.prenom }}</td>
-                    <td>{{ tuteur.nom }}</td>
-                    <td>{{ tuteur.adresse }}</td>
-                    <td>{{ tuteur.email }}</td>
-                    <td jhiTranslate="{{ 'gatewayApp.Sexe.' + tuteur.sexe }}">{{ tuteur.sexe }}</td>
+                    <td class="font">{{ tuteur.prenom }}</td>
+                    <td class="font">{{ tuteur.nom }}</td>
+                    <td class="font">{{ tuteur.adresse }}</td>
+                    <td class="font">{{ tuteur.email }}</td>
+                    <td class="font" jhiTranslate="{{ 'gatewayApp.Sexe.' + tuteur.sexe }}">{{ tuteur.sexe }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit" [routerLink]="['/tuteur', tuteur.id, 'view']" class="btn btn-info btn-sm">
@@ -59,7 +59,7 @@
     </div>
 
     <div *ngIf="tuteurs && tuteurs.length > 0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center font">
             <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
         </div>
     </div>

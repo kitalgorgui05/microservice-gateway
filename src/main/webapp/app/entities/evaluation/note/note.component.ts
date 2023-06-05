@@ -10,7 +10,7 @@ import { INote } from 'app/shared/model/evaluation/note.model';
 import { ITEMS_PER_PAGE } from 'app/shared/constants/pagination.constants';
 import { NoteService } from './note.service';
 import { NoteDeleteDialogComponent } from './note-delete-dialog.component';
-import {EleveService} from "../../Inscriptiondb/eleve/eleve.service";
+import {EleveService} from "../../Inscriptiondb/inscription/eleve.service";
 
 @Component({
   selector: 'jhi-note',

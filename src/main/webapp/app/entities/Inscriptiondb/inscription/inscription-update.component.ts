@@ -10,11 +10,14 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { IInscription, Inscription } from 'app/shared/model/Inscriptiondb/inscription.model';
 import { InscriptionService } from './inscription.service';
 import { IEleve } from 'app/shared/model/Inscriptiondb/eleve.model';
-import { EleveService } from 'app/entities/Inscriptiondb/eleve/eleve.service';
 import { IAnnee } from 'app/shared/model/Inscriptiondb/annee.model';
 import { AnneeService } from 'app/entities/Inscriptiondb/annee/annee.service';
 import {ClasseService} from "../../classe1/classe/classe.service";
 import {IClasse} from "../../../shared/model/classe1/classe.model";
+import {EleveService} from "./eleve.service";
+import { ITuteur } from 'app/shared/model/Inscriptiondb/tuteur.model';
+import { TuteurService } from '../tuteur/tuteur.service';
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 
 type SelectableEntity = IEleve | IAnnee;
 
@@ -27,6 +30,7 @@ export class InscriptionUpdateComponent implements OnInit {
   eleves: IEleve[] = [];
   annees: IAnnee[] = [];
   classes: IClasse[] = [];
+  tuteurs: ITuteur[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -34,16 +38,28 @@ export class InscriptionUpdateComponent implements OnInit {
     classe: [null, [Validators.required]],
     transport: [],
     cantine: [],
-    statut: [null, [Validators.required]],
     eleve: [],
+     statut: [null, []],
     annee: [],
+    matricule: [null,[]],
+    prenom: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+    nom: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+    sexe: [null, [Validators.required]],
+    adresse: [null, [Validators.required]],
+    telephone: [null, [Validators.minLength(2), Validators.maxLength(12)]],
+    email: [null, []],
+    dateNaissance: [null, [Validators.required]],
+    lieuNaissance: [null, [Validators.required]],
+    tuteur: []
   });
 
   constructor(
     protected inscriptionService: InscriptionService,
     protected classeService: ClasseService,
     protected eleveService: EleveService,
+    protected modalService: NgbModal,
     protected anneeService: AnneeService,
+    protected tuteurService: TuteurService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -56,11 +72,10 @@ export class InscriptionUpdateComponent implements OnInit {
       }
 
       this.updateForm(inscription);
-
       this.eleveService.query().subscribe((res: HttpResponse<IEleve[]>) => (this.eleves = res.body || []));
-
       this.anneeService.query().subscribe((res: HttpResponse<IAnnee[]>) => (this.annees = res.body || []));
       this.classeService.query().subscribe((res: HttpResponse<IClasse[]>) => (this.classes = res.body || []));
+      this.tuteurService.query().subscribe((res: HttpResponse<ITuteur[]>) => (this.tuteurs = res.body || []));
     });
   }
 
@@ -71,9 +86,18 @@ export class InscriptionUpdateComponent implements OnInit {
       classe: inscription.classe,
       transport: inscription.transport,
       cantine: inscription.cantine,
-      statut: inscription.statut,
       eleve: inscription.eleve?.id,
       annee: inscription.annee?.id,
+      matricule: inscription.eleve?.matricule,
+      prenom: inscription.eleve?.prenom,
+      nom: inscription.eleve?.nom,
+      sexe: inscription.eleve?.sexe,
+      adresse: inscription.eleve?.adresse,
+      telephone: inscription.eleve?.telephone,
+      email: inscription.eleve?.email,
+      dateNaissance: inscription.eleve?.dateNaissance,
+      lieuNaissance: inscription.eleve?.lieuNaissance,
+      tuteur: inscription.eleve?.tuteur?.id,
     });
   }
 
@@ -91,7 +115,19 @@ export class InscriptionUpdateComponent implements OnInit {
     }
   }
 
-  private createFromForm(): IInscription {
+  private createFromForm(): any {
+    const  eleve = {
+      matricule: this.editForm.get(['matricule'])!.value,
+      prenom: this.editForm.get(['prenom'])!.value,
+      nom: this.editForm.get(['nom'])!.value,
+      sexe: this.editForm.get(['sexe'])!.value,
+      adresse: this.editForm.get(['adresse'])!.value,
+      telephone: this.editForm.get(['telephone'])!.value,
+      email: this.editForm.get(['email'])!.value,
+      dateNaissance: this.editForm.get(['dateNaissance'])!.value,
+      lieuNaissance: this.editForm.get(['lieuNaissance'])!.value,
+      tuteur: this.editForm.get(['tuteur'])!.value
+    };
     return {
       ...new Inscription(),
       id: this.editForm.get(['id'])!.value,
@@ -101,9 +137,11 @@ export class InscriptionUpdateComponent implements OnInit {
       classe: this.editForm.get(['classe'])!.value,
       transport: this.editForm.get(['transport'])!.value,
       cantine: this.editForm.get(['cantine'])!.value,
-      statut: this.editForm.get(['statut'])!.value,
-      eleve: this.editForm.get(['eleve'])!.value,
+      eleve,
+
+      /* statut: this.editForm.get(['statut'])!.value, */
       annee: this.editForm.get(['annee'])!.value,
+
     };
   }
 
@@ -124,6 +162,10 @@ export class InscriptionUpdateComponent implements OnInit {
   }
 
   trackById(index: number, item: SelectableEntity): any {
+    return item.id;
+  }
+
+  trackByIdT(index: number, item: ITuteur): any {
     return item.id;
   }
 

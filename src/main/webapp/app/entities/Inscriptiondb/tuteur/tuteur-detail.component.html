@@ -3,7 +3,7 @@
         <div *ngIf="tuteur" class="forme">
             <div class="badges">
                 <span class="badge badge-dark">
-                    <span jhiTranslate="gatewayApp.inscriptiondbTuteur.detail.title">Tuteur</span> {{ tuteur.nom }}
+                    <span jhiTranslate="gatewayApp.inscriptiondbTuteur.detail.title" class="font">Tuteur</span> <span class="font">{{ tuteur.nom }}</span>
                 </span>
             </div>
             <jhi-alert-error></jhi-alert-error>
@@ -11,38 +11,38 @@
             <div class="card jh-card">
                 <div class="row  jh-entity-details">
                     <div class="col-md-6">
-                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.prenom" class="font-weight-bold">Prenom</span> :
-                        <span>{{ tuteur.prenom }}</span>
+                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.prenom" class="font-weight-bold font">Prenom</span> :
+                        <span class="font">{{ tuteur.prenom }}</span>
                     </div>
                     <div class="col-md-6">
-                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.nom" class="font-weight-bold">Nom</span> :
-                        <span>{{ tuteur.nom }}</span>
-                    </div>
-                </div>
-                <div class="row jh-entity-details">
-                    <div class="col-md-6">
-                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.adresse" class="font-weight-bold">Adresse</span> :
-                        <span>{{ tuteur.adresse }}</span>
-                    </div>
-                    <div class="col-md-6">
-                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.email" class="font-weight-bold">Email</span> :
-                        <span>{{ tuteur.email }}</span>
+                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.nom" class="font-weight-bold font">Nom</span> :
+                        <span class="font">{{ tuteur.nom }}</span>
                     </div>
                 </div>
                 <div class="row jh-entity-details">
                     <div class="col-md-6">
-                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.sexe" class="font-weight-bold">Sexe</span> :
-                        <span jhiTranslate="{{ 'gatewayApp.Sexe.' + tuteur.sexe }}">{{ tuteur.sexe }}</span>
+                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.adresse" class="font-weight-bold font">Adresse</span> :
+                        <span class="font">{{ tuteur.adresse }}</span>
+                    </div>
+                    <div class="col-md-6">
+                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.email" class="font-weight-bold font">Email</span> :
+                        <span class="font">{{ tuteur.email }}</span>
+                    </div>
+                </div>
+                <div class="row jh-entity-details">
+                    <div class="col-md-6">
+                        <span jhiTranslate="gatewayApp.inscriptiondbTuteur.sexe" class="font-weight-bold font">Sexe</span> :
+                        <span class="font" jhiTranslate="{{ 'gatewayApp.Sexe.' + tuteur.sexe }}">{{ tuteur.sexe }}</span>
                     </div>
                 </div>
             </div>
 
             <button type="submit" (click)="previousState()" class="btn btn-info">
-                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back" class="font">Back</span>
             </button>
 
             <button type="button" [routerLink]="['/tuteur', tuteur.id, 'edit']" class="btn btn-primary">
-                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit" class="font">Edit</span>
             </button>
         </div>
     </div>

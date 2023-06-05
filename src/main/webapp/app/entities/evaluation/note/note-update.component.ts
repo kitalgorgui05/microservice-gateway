@@ -11,8 +11,8 @@ import { NoteService } from './note.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
 import { IEvaluation } from 'app/shared/model/evaluation/evaluation.model';
 import { EvaluationService } from 'app/entities/evaluation/evaluation/evaluation.service';
-import {EleveService} from "../../Inscriptiondb/eleve/eleve.service";
 import {IEleve} from "../../../shared/model/Inscriptiondb/eleve.model";
+import {EleveService} from "../../Inscriptiondb/inscription/eleve.service";
 
 @Component({
   selector: 'jhi-note-update',

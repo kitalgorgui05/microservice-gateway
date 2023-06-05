@@ -1,7 +1,7 @@
 <aside class="main-sidebar main-sidebar-custom sidebar-light-white-primary elevation-4">
     <a href="#" class="brand-link">
         <img src="/content/images/LOGO.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Gestion école</span>
+        <span class="brand-text font-weight-light font">Gestion école</span>
     </a>
 
     <div class="sidebar">
@@ -12,7 +12,7 @@
             <div class="info">
                 <div [ngSwitch]="isAuthenticated()">
                     <div *ngSwitchCase="true">
-                        <span style="font-family: 'Comic Sans MS', Helvetica, Arial, sans-serif" *ngIf="account"> {{account.lastName}} | {{ account.login }}</span>
+                        <span class="font" *ngIf="account"> {{account.lastName}} | {{ account.login }}</span>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <li class="nav-item menu-open">
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="#" class="nav-link font">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -31,7 +31,7 @@
                     </ul>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Elèves
@@ -40,36 +40,29 @@
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="eleve" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                                <i class="far fa-circle nav-icon"></i>
-                                <span jhiTranslate="global.menu.entities.inscriptiondbEleve">New student</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" routerLink="inscription" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="inscription" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.inscriptiondbInscription">Inscription</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="tuteur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="tuteur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.inscriptiondbTuteur">Tuteur</span>
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="annee" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="annee" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
-                                <span jhiTranslate="global.menu.entities.inscriptiondbAnnee">Annee</span>
+                                <span jhiTranslate="global.menu.entities.inscriptiondbAnnee">Année</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="nav-icon fas fa-tree"></i>
                         <p>
                             Classes
@@ -78,19 +71,19 @@
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="classe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="classe" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.classeClasse">Classe</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="niveau" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="niveau" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.classeNiveau">Niveau</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="matiere" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="matiere" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.classeMatiere">Matiere</span>
                             </a>
@@ -98,31 +91,31 @@
                     </ul>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Cours<i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="cours" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="cours" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.coursCours">Cours</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="horaire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="horaire" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.coursHoraire">Horaire</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="enseignant" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="enseignant" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.coursEnseignant">Enseignant</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="absence" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="absence" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.coursAbsence">Absence</span>
                             </a>
@@ -130,7 +123,7 @@
                     </ul>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="nav-icon fas fa-house-user"></i>
                         <p>
                             Immoblier (B-S)
@@ -139,13 +132,13 @@
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a  class="nav-link" routerLink="batiment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a  class="nav-link font" routerLink="batiment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.immoblierBatiment">Batiment</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="salle" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="salle" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.immoblierSalle">Salle</span>
                             </a>
@@ -153,7 +146,7 @@
                     </ul>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="nav-icon fas fa-car-alt"></i>
                         <p>
                             Transport (Bus&Ch)
@@ -162,31 +155,31 @@
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="bus" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="bus" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.transportBus">Bus</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="chauffeur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="chauffeur" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.transportChauffeur">Chauffeur</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="groupe-transport" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="groupe-transport" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.transportGroupeTransport">Groupe Transport</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="zone" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="zone" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.transportZone">Zone</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="programme-transport" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="programme-transport" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.transportProgrammeTransport">Programme Transport</span>
                             </a>
@@ -194,7 +187,7 @@
                     </ul>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="nav-icon fas fa-house-damage"></i>
                         <p>
                             Cantine
@@ -203,13 +196,13 @@
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="cantine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="cantine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.cantineCantine">Cantine</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink="groupe-cantine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a class="nav-link font" routerLink="groupe-cantine" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.cantineGroupeCantine">Groupe Cantine</span>
                             </a>
@@ -217,25 +210,25 @@
                     </ul>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="fas fa-tasks"></i>
                         <p>Evaluation<i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a  class="nav-link" routerLink="evaluation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a  class="nav-link font" routerLink="evaluation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.evaluationEvaluation">Evaluation</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  class="nav-link" routerLink="trimestre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a  class="nav-link font" routerLink="trimestre" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.evaluationTrimestre">Trimestre</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  class="nav-link" routerLink="note" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a  class="nav-link font" routerLink="note" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.evaluationNote">Note</span>
                             </a>
@@ -243,25 +236,25 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link font">
                         <i class="fas fa-dollar-sign"></i>
                         <p>Payement<i class="fas fa-angle-left right"></i></p>
                     </a>
                     <ul class="nav nav-treeview ml-2">
                         <li class="nav-item">
-                            <a  class="nav-link" routerLink="facture" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a  class="nav-link font" routerLink="facture" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.paiementdbFacture">Facture</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  class="nav-link" routerLink="reglement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a  class="nav-link font" routerLink="reglement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.paiementdbReglement">Reglement</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a  class="nav-link" routerLink="mois" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <a  class="nav-link font" routerLink="mois" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                                 <i class="far fa-circle nav-icon"></i>
                                 <span jhiTranslate="global.menu.entities.paiementdbMois">Mois</span>
                             </a>

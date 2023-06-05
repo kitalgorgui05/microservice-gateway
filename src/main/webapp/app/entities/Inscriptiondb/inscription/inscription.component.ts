@@ -1,9 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, ParamMap, Router, Data } from '@angular/router';
 import { Subscription, combineLatest } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { IInscription } from 'app/shared/model/Inscriptiondb/inscription.model';
 
@@ -16,6 +16,8 @@ import {AnneeService} from "../annee/annee.service";
 import {Annee} from "../../../shared/model/Inscriptiondb/annee.model";
 import {ClasseService} from "../../classe1/classe/classe.service";
 import {Classe} from "../../../shared/model/classe1/classe.model";
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {ReinscriptionComponent} from "./reinscription.component";
 
 @Component({
   selector: 'jhi-inscription',
@@ -32,6 +34,7 @@ export class InscriptionComponent implements OnInit, OnDestroy {
   predicate!: string;
   ascending!: boolean;
   ngbPaginationPage = 1;
+  modalRef?: BsModalRef;
 
   filtreData = this.fb.group({
     classe: [],
@@ -44,11 +47,19 @@ export class InscriptionComponent implements OnInit, OnDestroy {
     protected classeService : ClasseService,
     protected activatedRoute: ActivatedRoute,
     protected router: Router,
+    private modalServiceOne: BsModalService,
     protected eventManager: JhiEventManager,
     protected modalService: NgbModal,
     private fb: FormBuilder
   ) {}
 
+  reinscrire(inscription: IInscription): void {
+      const modalRef = this.modalService.open(ReinscriptionComponent);
+    modalRef.componentInstance.inscription = inscription;
+  }
+ /*   openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalServiceOne.show(template);
+  } */
   loadPage(page?: number, dontNavigate?: boolean): void {
     const pageToLoad: number = page || this.page || 1;
 

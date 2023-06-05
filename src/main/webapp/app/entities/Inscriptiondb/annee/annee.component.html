@@ -1,9 +1,9 @@
 <div>
     <h3 id="page-heading">
-        <span jhiTranslate="gatewayApp.inscriptiondbAnnee.home.title">Liste of Annees</span>
+        <span jhiTranslate="gatewayApp.inscriptiondbAnnee.home.title" class="font">Liste of Annees</span>
         <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-annee" [routerLink]="['/annee/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="gatewayApp.inscriptiondbAnnee.home.createLabel">
+            <span class="font" jhiTranslate="gatewayApp.inscriptiondbAnnee.home.createLabel">
                 New
             </span>
         </button>
@@ -21,17 +21,17 @@
         <table class="table table-striped table-hover" aria-describedby="page-heading">
             <thead class="bg-dark">
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.inscriptiondbAnnee.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="dateDebut"><span jhiTranslate="gatewayApp.inscriptiondbAnnee.dateDebut">Date Debut</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="dateFin"><span jhiTranslate="gatewayApp.inscriptiondbAnnee.dateFin">Date Fin</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.inscriptiondbAnnee.nom" class="font">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateDebut"><span jhiTranslate="gatewayApp.inscriptiondbAnnee.dateDebut" class="font">Date Debut</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="dateFin"><span jhiTranslate="gatewayApp.inscriptiondbAnnee.dateFin" class="font">Date Fin</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let annee of annees ;trackBy: trackId">
-                    <td>{{ annee.nom }}</td>
-                    <td>{{ annee.dateDebut | date:'mediumDate' }}</td>
-                    <td>{{ annee.dateFin | date:'mediumDate' }}</td>
+                    <td class="font">{{ annee.nom }}</td>
+                    <td class="font">{{ annee.dateDebut | date:'mediumDate' }}</td>
+                    <td class="font">{{ annee.dateFin | date:'mediumDate' }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit" [routerLink]="['/annee', annee.id, 'view']" class="btn btn-info btn-sm">
@@ -54,7 +54,7 @@
     </div>
 
     <div *ngIf="annees && annees.length > 0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center font">
             <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
         </div>
     </div>

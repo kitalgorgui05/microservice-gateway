@@ -40,7 +40,7 @@
     transform: rotate(180deg);
   }
 }*/
-/*@-webkit-keyframes lds-pacman-2 {
+@-webkit-keyframes lds-pacman-2 {
   0% {
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
@@ -53,7 +53,7 @@
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   }
-}*/
+}/*
 @keyframes lds-pacman-3 {
   0% {
     -webkit-transform: translate(190px, 0);
@@ -83,7 +83,7 @@
     transform: translate(70px, 0);
     opacity: 1;
   }
-}
+}*/
 
 .app-loading {
   font-family: 'Comic Sans MS', Helvetica, Arial, sans-serif;

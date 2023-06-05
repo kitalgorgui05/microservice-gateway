@@ -7,10 +7,21 @@ import * as moment from 'moment';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared/util/request-util';
 import { IInscription } from 'app/shared/model/Inscriptiondb/inscription.model';
+import {HealthDetails} from "app/admin/health/health.service";
 
 type EntityResponseType = HttpResponse<IInscription>;
 type EntityArrayResponseType = HttpResponse<IInscription[]>;
+// MODAL
+export type HealthStatus = 'UP' | 'DOWN' | 'UNKNOWN' | 'OUT_OF_SERVICE';
 
+export type HealthKey = 'discoveryComposite' | 'refreshScope' | 'clientConfigServer' | 'hystrix' | 'diskSpace' | 'mail' | 'ping' | 'db';
+
+export interface Health {
+  status: HealthStatus;
+  components: {
+    [key in HealthKey]?: HealthDetails;
+  };
+}
 @Injectable({ providedIn: 'root' })
 export class InscriptionService {
   public resourceUrl = SERVER_API_URL + 'services/inscriptiondb/api/inscriptions';

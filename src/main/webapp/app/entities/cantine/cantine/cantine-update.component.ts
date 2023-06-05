@@ -21,7 +21,9 @@ export class CantineUpdateComponent implements OnInit {
     nombreGroupe: [null, [Validators.required]],
   });
 
-  constructor(protected cantineService: CantineService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(protected cantineService: CantineService,
+              protected activatedRoute: ActivatedRoute,
+              private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ cantine }) => {

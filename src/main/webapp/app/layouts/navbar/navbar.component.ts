@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
   logout(): void {
     this.collapseNavbar();
     this.loginService.logout();
-    this.kc.logout("http://localhost:9080/auth")
+    this.router.navigate(['']);
   }
 
   toggleNavbar(): void {

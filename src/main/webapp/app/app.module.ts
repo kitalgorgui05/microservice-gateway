@@ -26,7 +26,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ChartsModule} from "ng2-charts";
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-
+import { ModalModule } from 'ngx-bootstrap/modal';
 // tslint:disable-next-line:typedef
 export function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -61,7 +61,8 @@ export function initializeKeycloak(keycloak: KeycloakService) {
     ChartsModule,
     LoadingBarRouterModule,
     LoadingBarModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    ModalModule.forRoot()
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent, AsideBarrComponent, HeaderComponent, AsideBarrFooterComponent],
   providers: [

@@ -1,115 +1,221 @@
-
+<div class="card">
 <div class="row justify-content-center">
     <div class="col-12">
-        <form name="editForm" class="forme" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <div class="badges">
-                <span class="badge badge-dark" id="jhi-inscription-heading" jhiTranslate="gatewayApp.inscriptiondbInscription.home.createOrEditLabel">Create or edit a Inscription</span>
-            </div>
-            <div>
-                <jhi-alert-error></jhi-alert-error>
-
-                <div hidden class="form-group">
-                    <label for="id" jhiTranslate="global.field.id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbInscription.dateInscription" for="field_dateInscription">Date Inscription</label>
-                            <div class="d-flex">
-                                <input id="field_dateInscription" type="datetime-local" class="form-control" name="dateInscription" formControlName="dateInscription" placeholder="YYYY-MM-DD HH:mm"/>
-                            </div>
-                            <div *ngIf="editForm.get('dateInscription')!.invalid && (editForm.get('dateInscription')!.dirty || editForm.get('dateInscription')!.touched)">
-                                <small class="form-text text-danger"
-                                       *ngIf="editForm.get('dateInscription')?.errors?.required" jhiTranslate="entity.validation.required">
-                                    This field is required.
-                                </small>
-                                <small class="form-text text-danger"
-                                       [hidden]="!editForm.get('dateInscription')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
-                                    This field should be a date and time.
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbInscription.eleve" for="field_eleve">Eleve</label>
-                            <select class="form-control" id="field_eleve" name="eleve" formControlName="eleve">
-                                <option [ngValue]="null"></option>
-                                <option [ngValue]="eleveOption.id" *ngFor="let eleveOption of eleves; trackBy: trackById">{{ eleveOption.prenom}} &nbsp;
-                                {{eleveOption.nom}}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbInscription.classe" for="field_classe">Classe</label>
-                                <select class="form-control" id="field_classe" name="classe" formControlName="classe">
-                                    <option [ngValue]="null"></option>
-                                    <option [ngValue]="c.id" *ngFor="let c of classes; trackBy: trackByIdClasses">{{c?.nom}}</option>
-                                </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbInscription.annee" for="field_annee">Annee</label>
-                            <select class="form-control" id="field_annee" name="annee" formControlName="annee">
-                                <option [ngValue]="null"></option>
-                                <option [ngValue]="anneeOption.id" *ngFor="let anneeOption of annees; trackBy: trackById">{{ anneeOption.nom }}</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbInscription.statut" for="field_statut">Statut</label>
-                            <select class="form-control" name="statut" formControlName="statut" id="field_statut">
-                                <option value="INSCRIT">{{ 'gatewayApp.Etat.INSCRIT' | translate }}</option>
-                                <option value="NON_INSCRIT">{{ 'gatewayApp.Etat.NON_INSCRIT' | translate }}</option>
-                            </select>
-                            <div *ngIf="editForm.get('statut')!.invalid && (editForm.get('statut')!.dirty || editForm.get('statut')!.touched)">
-                                <small class="form-text text-danger"
-                                       *ngIf="editForm.get('statut')?.errors?.required" jhiTranslate="entity.validation.required">
-                                    This field is required.
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <div class="card-header text-center font"  jhiTranslate="gatewayApp.inscriptiondbInscription.home.createOrEditLabel">create or Edit</div>
+                <div class="card-body">
+                    <div>
+                        <jhi-alert-error></jhi-alert-error>
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbInscription.cantine" for="field_cantine">Cantine</label>
-                                    <input type="checkbox" class="form-control-md" name="cantine" id="field_cantine"
-                                           formControlName="cantine"/>
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbInscription.dateInscription" for="field_dateInscription">Date Inscription</label>
+                                    <div class="d-flex">
+                                        <input id="field_dateInscription" type="datetime-local" class="form-control font" name="dateInscription" formControlName="dateInscription" placeholder="YYYY-MM-DD HH:mm"/>
+                                    </div>
+                                    <div class="font" *ngIf="editForm.get('dateInscription')!.invalid && (editForm.get('dateInscription')!.dirty || editForm.get('dateInscription')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('dateInscription')?.errors?.required" jhiTranslate="entity.validation.required">
+                                            This field is required.
+                                        </small>
+                                        <small class="form-text text-danger"
+                                               [hidden]="!editForm.get('dateInscription')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                                            This field should be a date and time.
+                                        </small>
+                                    </div>
                                 </div>
-
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="form-control-label-md" jhiTranslate="gatewayApp.inscriptiondbInscription.transport" for="field_transport">Transport</label>
-                                    <input type="checkbox" class="form-control-md" name="transport" id="field_transport" formControlName="transport"/>
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbInscription.classe" for="field_classe">Classe</label>
+                                    <select class="form-control font" id="field_classe" name="classe" formControlName="classe">
+                                        <option [ngValue]="null"></option>
+                                        <option [ngValue]="c.id" *ngFor="let c of classes; trackBy: trackByIdClasses">{{c?.nom}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbInscription.annee" for="field_annee">Annee</label>
+                                    <select class="form-control font" id="field_annee" name="annee" formControlName="annee">
+                                        <option [ngValue]="null"></option>
+                                        <option [ngValue]="anneeOption.id" *ngFor="let anneeOption of annees; trackBy: trackById">{{ anneeOption.nom }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.prenom" for="field_prenom">Prenom</label>
+                                    <input type="text" class="form-control font" name="prenom" id="field_prenom" placeholder="Prenom" formControlName="prenom"/>
+                                    <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('prenom')?.errors?.required" jhiTranslate="entity.validation.required">
+                                            This field is required.
+                                        </small>
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('prenom')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                                            This field is required to be at least 2 characters.
+                                        </small>
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('prenom')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 30 }">
+                                            This field cannot be longer than 30 characters.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.nom" for="field_nom">Nom</label>
+                                    <input type="text" class="form-control font" name="nom" id="field_nom" placeholder="Nom" formControlName="nom"/>
+                                    <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('nom')?.errors?.required" jhiTranslate="entity.validation.required">
+                                            This field is required.
+                                        </small>
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('nom')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                                            This field is required to be at least 2 characters.
+                                        </small>
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('nom')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 30 }">
+                                            This field cannot be longer than 30 characters.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.sexe" for="field_sexe">Sexe</label>
+                                    <select class="form-control font" name="sexe" formControlName="sexe" id="field_sexe">
+                                        <option value="MASCULIN">{{ 'gatewayApp.Sexe.MASCULIN' | translate }}</option>
+                                        <option value="FEMININ">{{ 'gatewayApp.Sexe.FEMININ' | translate }}</option>
+                                    </select>
+                                    <div *ngIf="editForm.get('sexe')!.invalid && (editForm.get('sexe')!.dirty || editForm.get('sexe')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('sexe')?.errors?.required" jhiTranslate="entity.validation.required">
+                                            This field is required.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.dateNaissance" for="field_dateNaissance">Date Naissance</label>
+                                    <div class="input-group">
+                                        <input id="field_dateNaissance" type="text" class="form-control font" name="dateNaissance" ngbDatepicker #dateNaissanceDp="ngbDatepicker" formControlName="dateNaissance" placeholder="Date de Naissance"/>
+                                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                                    </div>
+                                    <div *ngIf="editForm.get('dateNaissance')!.invalid && (editForm.get('dateNaissance')!.dirty || editForm.get('dateNaissance')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('dateNaissance')?.errors?.required" jhiTranslate="entity.validation.required">
+                                            This field is required.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.lieuNaissance" for="field_lieuNaissance">Lieu Naissance</label>
+                                    <input type="text" class="form-control font" name="lieuNaissance" id="field_lieuNaissance" placeholder="Lieu de naissance"
+                                           formControlName="lieuNaissance"/>
+                                    <div *ngIf="editForm.get('lieuNaissance')!.invalid && (editForm.get('lieuNaissance')!.dirty || editForm.get('lieuNaissance')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('lieuNaissance')?.errors?.required" jhiTranslate="entity.validation.required">
+                                            This field is required.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.adresse" for="field_adresse">Adrésse</label>
+                                    <textarea class="form-control font" name="adresse" id="field_adresse"
+                                              formControlName="adresse"></textarea>
+                                    <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('adresse')?.errors?.required" jhiTranslate="entity.validation.required">
+                                            This field is required.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.telephone" for="field_telephone">Téléphone</label>
+                                    <input type="text" class="form-control font" name="telephone" id="field_telephone" formControlName="telephone"/>
+                                    <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('telephone')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                                            This field is required to be at least 2 characters.
+                                        </small>
+
+                                        <small class="form-text text-danger"
+                                               *ngIf="editForm.get('telephone')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 12 }">
+                                            This field cannot be longer than 12 characters.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.email" for="field_email">Email</label>
+                                    <input type="text" class="form-control font" name="email" id="field_email"
+                                           formControlName="email"/>
+                                    <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbEleve.tuteur" for="field_tuteur">Tuteur</label>
+                                    <select class="form-control font" id="field_tuteur" name="tuteur" formControlName="tuteur">
+                                        <option [ngValue]="null"></option>
+                                        <option [ngValue]="tuteurOption.id" *ngFor="let tuteurOption of tuteurs; trackBy: trackByIdT">{{ tuteurOption?.prenom }} &nbsp; {{ tuteurOption?.nom }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbInscription.cantine" for="field_cantine">Cantine</label>
+                                    <input type="checkbox" class="form-control-md font" name="cantine" id="field_cantine" formControlName="cantine"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="form-control-label-md font" jhiTranslate="gatewayApp.inscriptiondbInscription.transport" for="field_transport">Transport</label>
+                                    <input type="checkbox" class="form-control-md font" name="transport" id="field_transport" formControlName="transport"/>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="mt-2 justify-content-center">
+                        <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                        </button>
+
+                        <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-
-            <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
-                </button>
-
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
-                </button>
-            </div>
         </form>
     </div>
 </div>
+</div>
+
 <!--
 
 <div id="formeinscription">

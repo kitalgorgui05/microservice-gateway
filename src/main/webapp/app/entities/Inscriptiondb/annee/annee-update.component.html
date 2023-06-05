@@ -2,7 +2,7 @@
     <div class="col-12">
         <form class="forme" name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
             <div class="badges">
-                <span class="badge badge-dark" id="jhi-annee-heading" jhiTranslate="gatewayApp.inscriptiondbAnnee.home.createOrEditLabel">Edit Year</span>
+                <span class="badge badge-dark font " id="jhi-annee-heading" jhiTranslate="gatewayApp.inscriptiondbAnnee.home.createOrEditLabel">Edit Year</span>
             </div>
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -11,7 +11,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbAnnee.nom" for="field_nom">Nom</label>
-                            <input type="text" class="form-control" name="nom" id="field_nom"
+                            <input type="text" class="form-control font" name="nom" id="field_nom"
                                    formControlName="nom"/>
                             <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
                                 <small class="form-text text-danger"
@@ -31,9 +31,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbAnnee.dateDebut" for="field_dateDebut">Date Debut</label>
+                            <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbAnnee.dateDebut" for="field_dateDebut">Date Debut</label>
                             <div class="input-group">
-                                <input id="field_dateDebut" type="text" class="form-control" name="dateDebut" ngbDatepicker #dateDebutDp="ngbDatepicker" formControlName="dateDebut"/>
+                                <input id="field_dateDebut" type="text" class="form-control font" name="dateDebut" ngbDatepicker #dateDebutDp="ngbDatepicker" formControlName="dateDebut"/>
                                 <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="dateDebutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
                         </span>
@@ -48,9 +48,9 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.inscriptiondbAnnee.dateFin" for="field_dateFin">Date Fin</label>
+                            <label class="form-control-label font" jhiTranslate="gatewayApp.inscriptiondbAnnee.dateFin" for="field_dateFin">Date Fin</label>
                             <div class="input-group">
-                                <input id="field_dateFin" type="text" class="form-control" name="dateFin" ngbDatepicker #dateFinDp="ngbDatepicker" formControlName="dateFin"/>
+                                <input id="field_dateFin" type="text" class="form-control font" name="dateFin" ngbDatepicker #dateFinDp="ngbDatepicker" formControlName="dateFin"/>
                                 <span class="input-group-append">
                             <button type="button" class="btn btn-secondary" (click)="dateFinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
                         </span>
@@ -68,11 +68,11 @@
             </div>
 
             <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                <button type="button" id="cancel-save" class="btn btn-secondary font" (click)="previousState()">
                     <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                 </button>
 
-                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary font">
                     <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
                 </button>
             </div>
