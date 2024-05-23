@@ -36,8 +36,7 @@ export class CantineComponent implements OnInit, OnDestroy {
   loadPage(page?: number, dontNavigate?: boolean): void {
     const pageToLoad: number = page || this.page || 1;
 
-    this.cantineService
-      .query({
+    this.cantineService.query({
         page: pageToLoad - 1,
         size: this.itemsPerPage,
         sort: this.sort(),

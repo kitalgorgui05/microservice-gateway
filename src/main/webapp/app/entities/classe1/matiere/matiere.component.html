@@ -1,12 +1,12 @@
 <div>
     <h3 id="page-heading">
-        <span jhiTranslate="gatewayApp.classe1Matiere.home.title">Matieres</span>
+        <span class="font" jhiTranslate="gatewayApp.classe1Matiere.home.title">Matieres</span>
         <button id="jh-create-entity" class="btn btn-primary btn-sm float-right jh-create-entity create-matiere" [routerLink]="['/matiere/new']"><fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="gatewayApp.classe1Matiere.home.createLabel">New</span>
+            <span  class="font" jhiTranslate="gatewayApp.classe1Matiere.home.createLabel">New</span>
         </button>
     </h3>
     <div class="pb-1">
-        <input class="form-control" type="text" placeholder="Rechercher...">
+        <input class="form-control font" type="text" name="recherche" placeholder="Rechercher...">
     </div>
     <jhi-alert-error></jhi-alert-error>
 
@@ -21,14 +21,14 @@
             <thead class="bg-dark">
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
                    <!-- <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>-->
-                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.classe1Matiere.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="nom" class="font"><span jhiTranslate="gatewayApp.classe1Matiere.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let matiere of matieres ;trackBy: trackId">
                    <!-- <td><a [routerLink]="['/matiere', matiere.id, 'view']">{{ matiere.id }}</a></td>-->
-                    <td>{{ matiere.nom }}</td>
+                    <td class="font">{{ matiere.nom }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit" [routerLink]="['/matiere', matiere.id, 'view']" class="btn btn-info btn-sm">
@@ -50,7 +50,7 @@
     </div>
     <hr>
     <div *ngIf="matieres && matieres.length > 0">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center font">
             <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
         </div>
     </div>

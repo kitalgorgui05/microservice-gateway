@@ -17,10 +17,10 @@ export class LoginService {
   logout(): void {
     this.authServerProvider.logout().subscribe((logout: Logout) => {
       let logoutUrl = logout.logoutUrl;
-      const redirectUri = `${location.origin}${this.location.prepareExternalUrl('lo')}`;
+      const redirectUri = `${location.origin}${this.location.prepareExternalUrl('oauth2/authorization/oidc')}`;
 
       // if Keycloak, uri has protocol/openid-connect/token
-      if (logoutUrl.includes('/protocol')) {
+      if (logoutUrl.includes('')) {
         logoutUrl = logoutUrl + '?redirect_uri=' + redirectUri;
       } else {
         // Okta

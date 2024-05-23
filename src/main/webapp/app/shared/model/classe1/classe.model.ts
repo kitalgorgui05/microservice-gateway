@@ -14,5 +14,6 @@ export class Classe implements IClasse {
     public id?: number,
     public nom?: string,
     public niveau?: INiveau,
-    public salleId?: ISalleClient) {}
+    public salleId?: ISalleClient
+  ) {}
 }

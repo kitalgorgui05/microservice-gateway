@@ -31,8 +31,9 @@ export class GroupeCantineUpdateComponent implements OnInit {
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
+
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ groupeCantine }) => {
+    this.activatedRoute.data.subscribe(({groupeCantine }) => {
       this.updateForm(groupeCantine);
 
       this.cantineService.query().subscribe((res: HttpResponse<ICantine[]>) => (this.cantines = res.body || []));
@@ -74,6 +75,7 @@ export class GroupeCantineUpdateComponent implements OnInit {
       () => this.onSaveError()
     );
   }
+
   protected onSaveSuccess(): void {
     this.isSaving = false;
     this.previousState();

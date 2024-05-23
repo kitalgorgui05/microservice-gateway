@@ -70,7 +70,6 @@ export class InscriptionUpdateComponent implements OnInit {
         const today = moment().startOf('day');
         inscription.dateInscription = today;
       }
-
       this.updateForm(inscription);
       this.eleveService.query().subscribe((res: HttpResponse<IEleve[]>) => (this.eleves = res.body || []));
       this.anneeService.query().subscribe((res: HttpResponse<IAnnee[]>) => (this.annees = res.body || []));

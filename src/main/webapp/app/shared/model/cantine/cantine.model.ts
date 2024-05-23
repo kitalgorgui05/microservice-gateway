@@ -8,5 +8,11 @@ export interface ICantine {
 }
 
 export class Cantine implements ICantine {
-  constructor(public id?: number, public libelle?: string, public nombreGroupe?: number, public groupecantines?: IGroupeCantine[]) {}
+  constructor(
+    public id?: number,
+    public libelle?: string,
+    public nombreGroupe?: number,
+    public groupecantines?: IGroupeCantine[]
+  )
+  {}
 }

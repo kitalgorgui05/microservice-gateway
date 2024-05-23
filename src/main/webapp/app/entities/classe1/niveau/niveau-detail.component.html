@@ -1,21 +1,21 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="niveau">
-            <h2><span jhiTranslate="gatewayApp.classe1Niveau.detail.title">Niveau</span> {{ niveau.id }}</h2>
+            <h2 class="font"><span jhiTranslate="gatewayApp.classe1Niveau.detail.title">Niveau</span> {{ niveau.nom }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="gatewayApp.classe1Niveau.nom">Nom</span></dt>
+                <dt><span class="font" jhiTranslate="gatewayApp.classe1Niveau.nom">Nom</span></dt>
                 <dd>
-                    <span>{{ niveau.nom }}</span>
+                    <span class="font">{{ niveau.nom}}</span>
                 </dd>
-                <dt><span jhiTranslate="gatewayApp.classe1Niveau.matiere">Matiere</span></dt>
+                <dt><span class="font" jhiTranslate="gatewayApp.classe1Niveau.matiere">Matiere</span> :</dt>
                 <dd>
                     <span *ngFor="let matiere of niveau.matieres; let last = last">
-                        <a [routerLink]="['/matiere', matiere?.id, 'view']">{{ matiere.id }}</a>{{ last ? '' : ', ' }}
+                        <span class="font" [routerLink]="['/matiere', matiere?.id, 'view']">{{ matiere.nom }}</span>{{ last ? '' : ', ' }}
                     </span>
                 </dd>
             </dl>

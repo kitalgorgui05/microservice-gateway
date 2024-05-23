@@ -11,7 +11,8 @@ import { ClasseService } from './classe.service';
 export class ClasseDeleteDialogComponent {
   classe!: IClasse | null;
 
-  constructor(protected classeService: ClasseService,
+  constructor(
+    protected classeService: ClasseService,
               public activeModal: NgbActiveModal,
               protected eventManager: JhiEventManager) {}
 

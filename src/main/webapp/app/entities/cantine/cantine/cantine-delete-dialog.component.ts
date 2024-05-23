@@ -10,9 +10,7 @@ import { CantineService } from './cantine.service';
 })
 export class CantineDeleteDialogComponent {
   cantine?: ICantine;
-
   constructor(protected cantineService: CantineService, public activeModal: NgbActiveModal, protected eventManager: JhiEventManager) {}
-
   cancel(): void {
     this.activeModal.dismiss();
   }

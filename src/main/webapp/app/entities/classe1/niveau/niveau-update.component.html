@@ -8,16 +8,16 @@
             <div>
                 <jhi-alert-error></jhi-alert-error>
 
-                <div hidden class="form-group">
+<!--                <div hidden class="form-group">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
-                </div>
+                </div>-->
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label class="form-control-label" jhiTranslate="gatewayApp.classe1Niveau.nom" for="field_nom">Nom</label>
-                            <input type="text" class="form-control" name="nom" id="field_nom"
+                            <label class="form-control-label font" jhiTranslate="gatewayApp.classe1Niveau.nom" for="field_nom">Nom</label>
+                            <input type="text" class="form-control font" name="nom" id="field_nom"
                                    formControlName="nom"/>
                             <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
                                 <small class="form-text text-danger"
@@ -40,7 +40,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label jhiTranslate="gatewayApp.classe1Niveau.matiere" for="field_matieres">Matiere</label>
-                            <select class="form-control" id="field_matieres" multiple name="matieres" formControlName="matieres">
+                            <select class="form-control font" id="field_matieres" multiple name="matieres" formControlName="matieres">
                                 <option [ngValue]="getSelected(editForm.get('matieres')!.value, matiereOption)" *ngFor="let matiereOption of matieres; trackBy: trackById">{{ matiereOption.nom }}</option>
                             </select>
                         </div>
@@ -56,11 +56,11 @@
             <hr>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
-                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span class="font" jhiTranslate="entity.action.cancel">Cancel</span>
                 </button>
 
                 <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
-                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span class="font" jhiTranslate="entity.action.save">Save</span>
                 </button>
             </div>
         </form>

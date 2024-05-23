@@ -87,7 +87,6 @@ export class ReinscriptionComponent implements OnInit {
       cantine: this.editForm.get(['cantine'])!.value,
       /* statut: this.editForm.get(['statut'])!.value, */
       annee: this.editForm.get(['annee'])!.value,
-
     };
   }
 

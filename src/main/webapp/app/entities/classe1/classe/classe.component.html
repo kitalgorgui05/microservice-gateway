@@ -1,10 +1,10 @@
 <div>
     <h3 id="page-heading">
-        <span jhiTranslate="gatewayApp.classe1Classe.home.title">Classes</span>
+        <span class="font" jhiTranslate="gatewayApp.classe1Classe.home.title">Classes</span>
 
         <button id="jh-create-entity" class="btn btn-primary btn-sm  float-right jh-create-entity create-classe" [routerLink]="['/classe/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="gatewayApp.classe1Classe.home.createLabel">
+            <span  jhiTranslate="gatewayApp.classe1Classe.home.createLabel" class="font">
             Create a new Classe
             </span>
         </button>
@@ -24,29 +24,29 @@
         <table id="entities" *ngIf="classes && classes.length > 0" class="table table-striped table-hover" aria-describedby="page-heading">
             <thead class="bg-dark">
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
-                    <th scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.classe1Classe.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="niveau"><span jhiTranslate="gatewayApp.classe1Classe.niveau">Niveau</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="salle"><span>Salle</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="batiment"><span>Batiment</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th class="font" scope="col"  jhiSortBy="nom"><span jhiTranslate="gatewayApp.classe1Classe.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th class="font" scope="col"  jhiSortBy="niveau"><span jhiTranslate="gatewayApp.classe1Classe.niveau">Niveau</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th class="font" scope="col"  jhiSortBy="salle"><span>Salle</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th class="font" scope="col"  jhiSortBy="batiment"><span>Batiment</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let classe of classes ;trackBy: trackId">
-                    <td>{{ classe.nom }}</td>
+                    <td class="font">{{ classe.nom }}</td>
                     <td>
                         <div *ngIf="classe.niveau?.id">
-                            <div [routerLink]="['/niveau', classe.niveau?.id , 'view']" >{{ classe.niveau?.nom}}</div>
+                            <div class="font" [routerLink]="['/niveau', classe.niveau?.id , 'view']" >{{ classe.niveau?.nom}}</div>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="classe.salle">
-                            <div>{{ classe.salleClient?.nom }}</div>
+                            <div class="font">{{ classe.salleClient?.nom }}</div>
                         </div>
                     </td>
                     <td>
                         <div *ngIf="classe.salle">
-                            <div>{{ classe.salleClient?.batiment?.nom }}</div>
+                            <div class="font">{{ classe.salleClient?.batiment?.nom }}</div>
                         </div>
                     </td>
                     <td class="text-right">
@@ -69,7 +69,7 @@
         </table>
     <!--</div>-->
     <hr>
-    <div *ngIf="classes && classes.length > 0" class="row justify-content-center">
+    <div class="font" *ngIf="classes && classes.length > 0" class="row justify-content-center">
         <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="4" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
     </div>
 </div>
